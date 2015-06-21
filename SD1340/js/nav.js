@@ -18,6 +18,11 @@ $(document).ready(function(){
 			startAutoHide();
 		}
 	});
+	$().click(function(){
+		if(!$(event.target).is('#hideaway')){
+			menu();
+		}	
+	});
 });
 
 var menuIsVisible=false;
