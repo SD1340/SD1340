@@ -18,8 +18,13 @@ $(document).ready(function(){
 			startAutoHide();
 		}
 	});
-	$().click(function(){
-		if(!$(event.target).is('#hideaway')){
+	$('html').click(function(e){
+		if(menuIsVisible 
+		&& e.target.id != 'hideaway' 
+		&& e.target.id != 'menu_div'
+		&& e.target.id != 'menubtn'){
+			console.log('event target id: ' + e.target.id);
+			stopAutoHide();
 			menu();
 		}	
 	});
