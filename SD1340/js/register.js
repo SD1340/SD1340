@@ -3,12 +3,13 @@ $(document).ready(function(){
 		if($('#panel1').css('display') !== 'none'){
 			validateUserName();
 			validatePassword();
-			validateCPassword();
+			validateCPassword(); 
 			console.log('username is valid: '+UNameisValid);
 			console.log('password is valid: '+PasswordisValid);
 			console.log('passwords match: '+CPasswordisValid);
 			if(UNameisValid && PasswordisValid && CPasswordisValid){
 				$('.errMsg').hide();
+				console.log('print');
 				showPanel2();
 			}else{
 				if(!UNameisValid)showUNameMsg();
@@ -177,9 +178,11 @@ function showUNameMsg(){
 	$('#UNameMsg').show();
 }
 function validatePassword(){
-	var regexPassword = /^(?=.{8})(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d)/;
-	var inputPassword = $('#password').val();
-	PasswordisValid = regexPassword.test(inputPassword);
+	if($('#password').val()!= ''){
+		var regexPassword = /^(?=.{8})(?=.*[a-z])(?=.*[A-Z])(?=.*\d.*\d)/;
+		var inputPassword = $('#password').val();
+		PasswordisValid = regexPassword.test(inputPassword);
+	}else{PasswordisValid=true;}
 }
 function showPasswordMsg(){
 	$('#PasswordMsg').show();
@@ -207,17 +210,21 @@ function showLNameMsg(){
 	$('#LNameMsg').show();
 }
 function validateEmail(){
-	var regexEmail= /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-	var inputEmail = $('#email').val();
-	EmailisValid = regexEmail.test(inputEmail);
+	if($('#email').val() != ''){
+		var regexEmail= /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+		var inputEmail = $('#email').val();
+		EmailisValid = regexEmail.test(inputEmail);
+	}else{EmailisValid=true;}
 }
 function showEmailMsg(){
 	$('#EmailMsg').show();
 }
 function validatePhone(){
-	var regexPhone = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/;
-	var inputPhone = $('#phone').val();
-	PhoneisValid = regexPhone.test(inputPhone);
+	if ($('#phone').val()){
+		var regexPhone = /^(?:(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/;
+		var inputPhone = $('#phone').val();
+		PhoneisValid = regexPhone.test(inputPhone);
+	}else{PhoneisValid=true;}
 }
 function showPhoneMsg(){
 	$('#PhoneMsg').show();
