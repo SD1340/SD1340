@@ -50,15 +50,3 @@ footer{
 #left_footer, #center_footer{
 	border-right: 2px solid #6699ff;
 }
-#userIcon img{
-	width: 42px;
-	float: right;
-}
-#logout{
-	float: right;
-}
-#user{
-	position: relative;
-	top: -45px;
-	margin-right: 10%;
-}

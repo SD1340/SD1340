@@ -110,3 +110,19 @@ main{
 	height: 100%;
 	border-radius: 15px;
 }
+#user img{
+	width: 55px;
+	float: right;
+}
+#logout{
+	float: right;
+}
+#user{
+	float: right;
+	margin-right: 10%;
+	margin-top: 5px;
+}
+#user a{
+	position: relative;
+	top: 25px;
+}
