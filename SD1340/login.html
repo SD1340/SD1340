@@ -21,10 +21,14 @@
 			</div>
 		</header>
 		<form id='login' action='#' method='GET'>
-			User Name: <input class='login' type='text' name='username'/></br>
-			Password: <input class='login' type='password' name='password'/></br>
-			<input type='submit' id='loginbtn' value='Log In'/>
-			<input type='submit' id='registerbtn' value='Register'/>
+			<div id='loginwrapper'>
+				<div><span class='label'>User Name:</span><input class='login' type='text' name='username' id='username'/></br></div>
+				<div><span class='label'>Password:</span><input class='login' type='password' name='password' id='password'/></br></div>
+			</div>
+			<div id='buttonwrapper'>
+				<input type='submit' id='loginbtn' value='Log In'/>
+				<button formaction='register.html' id='registerbtn' value='Register'>Register</button>
+			</div>
 		</form>
 	</main>
 </body>
