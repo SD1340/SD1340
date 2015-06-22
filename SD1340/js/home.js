@@ -6,7 +6,7 @@ $(document).ready(function(){
 			$('.topnav').show();
 			$('#logo').show();
 			$('main').css('width', '80%');
-		}else if(windowWidth<=800 && windowWidth>=420){
+		}else if(windowWidth<=800 && windowWidth>=500){
 			$('.topnav_txt').hide();
 			$('.topnav').show();
 			$('#logo').hide();
