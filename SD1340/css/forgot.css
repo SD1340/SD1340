@@ -37,9 +37,6 @@ input{
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
-#registerbtn{
-	margin-left: 20px;
-}
 .label{
 	text-align: right;
 	width: 45%;
@@ -49,17 +46,15 @@ input{
 	position: relative;
 	top: 1.3em;
 }
-#login .login{
-	text-align: left;
-	display: block;
+#errMsg{
+	color: red;
+	display: none;
+}
+#email{
 	float: left;
 }
 #buttonwrapper{
 	display: block;
 	width: 100%;
 	float: left;
-}
-#errMsg{
-	color: red;
-	display: none;
 }

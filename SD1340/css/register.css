@@ -97,7 +97,7 @@ input{
 .label{
 	text-align: right;
 	width: 45%;
-	padding-right: 5%;
+	padding-right: 2%;
 	display: block;
 	float: left;
 	position: relative;
@@ -113,5 +113,8 @@ input{
 }
 .errMsg{
 	color: red;
+	position: relative;
 	display: none;
+	float: left;
+	top: 1.3em;
 }

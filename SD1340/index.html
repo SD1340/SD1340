@@ -9,6 +9,8 @@
 	<link rel="stylesheet" href="css/index.css" type="text/css">
 	<script type="text/javascript" src='js/jquery.js'></script>
 	<script type="text/javascript" src="js/home.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	
 </head>
 <body>
 	<section id='logo'>
@@ -20,10 +22,13 @@
 				<h1>ITT-TECH Dayton SD1340: Mr. Memering</h1>
 			</div>
 		</header>
-		<form id='login' action='home.html' method='GET'>
+		<form id='login' action='home.html' onsubmit='return formValidate()' method='GET'>
 			<div id='loginwrapper'>
-				<div><span class='label'>User Name:</span><input class='login' type='text' name='username' id='username'/></br></div>
+				<div><span id='errMsg'>*Invalid Username or Password</span></div>
+				<div><span class='label'>Username:</span><input class='login' type='text' name='username' id='username'/></br></div>
+				<div><span class='label'>&nbsp;</span><a class='login' id='getusername' href='forgot.html'>Forgot Your Username?</a></div>
 				<div><span class='label'>Password:</span><input class='login' type='password' name='password' id='password'/></br></div>
+				<div><span class='label'>&nbsp;</span><a class='login' id='passwordreset' href='forgot.html'>Forgot Your Password?</a></div>
 			</div>
 			<div id='buttonwrapper'>
 				<input type='submit' id='loginbtn' value='Log In'/>

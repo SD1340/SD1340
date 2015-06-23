@@ -21,10 +21,10 @@
 				<h1>ITT-TECH Dayton SD1340: Mr. Memering</h1>
 			</div>
 		</header>
-		<form id='register' action='index.html' method='POST'>
+		<form id='register' action='index.html' onsubmit="return formValidate()" method='POST'>
 			<div id='formwrapper'>
 				<div id='panel1'>
-					<div><span class='label'>User Name:</span><input class='register' type='text' name='username' id='username'/><span id='UNameMsg' class='errMsg'>*Invalid User Name</span></br></div>
+					<div><span class='label'>Username:</span><input class='register' type='text' name='username' id='username'/><span id='UNameMsg' class='errMsg'>*Invalid Username</span></br></div>
 					<div><span class='label'>Password:</span><input class='register' type='password' name='password' id='password'/><span id='PasswordMsg' class='errMsg'>*Invalid Password: Must be at least 8 characters, contain upper and lower case letters, and have at least 2 numbers.</span></br></div>
 					<div><span class='label'>Confirm Password:</span><input class='register' type='password' name='cpassword' id='cpassword'/><span id='CPasswordMsg' class='errMsg'>*Passwords Don't Match</span></br></div>
 				</div>
