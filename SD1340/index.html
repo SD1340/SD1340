@@ -19,20 +19,20 @@
 	<main>
 		<header>
 			<div>
-				<h1>ITT-TECH Dayton SD1340: Mr. Memering</h1>
+				<h1>SD1340: Mr. Memering</h1>
 			</div>
 		</header>
-		<form id='login' action='home.html' onsubmit='return formValidate()' method='GET'>
+		<form id='login' action='home.html' onsubmit='return formValidate()' method='post'>
 			<div id='loginwrapper'>
 				<div><span id='errMsg'>*Invalid Username or Password</span></div>
-				<div><span class='label'>Username:</span><input class='login' type='text' name='username' id='username'/></br></div>
+				<div><span class='label'>Username:</span><input class='login' type='text' name='username' id='username_input'/></br></div>
 				<div><span class='label'>&nbsp;</span><a class='login' id='getusername' href='forgot.html'>Forgot Your Username?</a></div>
 				<div><span class='label'>Password:</span><input class='login' type='password' name='password' id='password'/></br></div>
 				<div><span class='label'>&nbsp;</span><a class='login' id='passwordreset' href='forgot.html'>Forgot Your Password?</a></div>
 			</div>
 			<div id='buttonwrapper'>
 				<input type='submit' id='loginbtn' value='Log In'/>
-				<button formaction='register.html' id='registerbtn' value='Register'>Register</button>
+				<button type='button' id='registerbtn' value='Register'>Register</button>
 			</div>
 		</form>
 	</main>
