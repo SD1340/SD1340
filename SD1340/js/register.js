@@ -4,12 +4,8 @@ $(document).ready(function(){
 			validateUserName();
 			validatePassword();
 			validateCPassword(); 
-			console.log('username is valid: '+UNameisValid);
-			console.log('password is valid: '+PasswordisValid);
-			console.log('passwords match: '+CPasswordisValid);
 			if(UNameisValid && PasswordisValid && CPasswordisValid){
 				$('.errMsg').hide();
-				console.log('print');
 				showPanel2();
 			}else{
 				if(!UNameisValid)showUNameMsg();
@@ -124,6 +120,9 @@ $(document).ready(function(){
 			}
 		}else{}
 	});
+	$('#cancel').click(function(){
+		window.location.href='../index.php';
+	});
 });
 
 function showPanel1(){
@@ -136,6 +135,7 @@ function showPanel1(){
 	$('#progressbar').css('backgroundColor', '#b8b8b8');
 	$('#progress1').css('backgroundColor', '#ff9933');
 	$('#progress2').css('backgroundColor', '#b8b8b8');
+	$('#username').focus();
 }
 function showPanel2(){
 	$('#panel1').hide();
@@ -147,6 +147,7 @@ function showPanel2(){
 	$('#progress1').css('backgroundColor', '#b8b8b8');
 	$('#progress2').css('backgroundColor', '#ff9933');
 	$('#progressbar').css('backgroundColor', '#b8b8b8');
+	$('#fname').focus();
 }
 function showPanel3(){
 	$('#panel1').hide();
@@ -158,6 +159,7 @@ function showPanel3(){
 	$('#progressbar').css('backgroundColor', '#ff9933');
 	$('#progress2').css('backgroundColor', '#b8b8b8');
 	$('#progress1').css('backgroundColor', '#b8b8b8');
+	$('#email').focus();
 }
 
 /*-----------Form Validation Functions-------------*/
@@ -198,13 +200,13 @@ function showCPasswordMsg(){
 	$('#CPasswordMsg').show();
 }
 function validateFirstName(){
-	
+
 }
 function showFNameMsg(){
 	$('#FNameMsg').show();
 }
 function validateLastName(){
-	
+
 }
 function showLNameMsg(){
 	$('#LNameMsg').show();
@@ -230,37 +232,50 @@ function showPhoneMsg(){
 	$('#PhoneMsg').show();
 }
 function formValidate(){
-		if($('username').val()!=''&&$('#password').val()!=''&&$('#cpassword').val()!=''){
-			if($('#fname').val()!=''&&$('#lname').val()!=''){
-				validateEmail();
-				validatePhone();
-				if($('#email').val()!=''&&$('#phone').val()!=''&&EmailisValid&&PhoneisValid){
-						return true;
-				}else{
-					if($('#email').val()==''){
-						showEmailMsg();
-					}else{
-						$('#EmailMsg').hide();
-					}
-					if($('#phone').val()==''){
-						showPhoneMsg();
-					}else{
-						$('#PhoneMsg').hide();
-					}
-					return false;
-				}
+	if($('username').val()!=''&&$('#password').val()!=''&&$('#cpassword').val()!=''){
+		if($('#fname').val()!=''&&$('#lname').val()!=''){
+			validateEmail();
+			validatePhone();
+			if($('#email').val()!=''&&$('#phone').val()!=''&&EmailisValid&&PhoneisValid){
+					return true;
 			}else{
-				showPanel2();
-				if($('#fname').val()=='')showFNameMsg();
-				if($('#lname').val()=='')showLNameMsg();
+				if($('#email').val()==''){
+					showEmailMsg();
+				}else{
+					$('#EmailMsg').hide();
+				}
+				if($('#phone').val()==''){
+					showPhoneMsg();
+				}else{
+					$('#PhoneMsg').hide();
+				}
 				return false;
 			}
 		}else{
-			showPanel1();
-			validateCPassword();
-			if($('#username').val()=='')showUNameMsg();
-			if($('#password').val()=='')showPasswordMsg();
-			if(!CPasswordisValid)showCPasswordMsg();
+			showPanel2();
+			if($('#fname').val()==''){
+				$('#FNameMsg').text('*First Name cannot be blank');
+				showFNameMsg();
+			}
+			if($('#lname').val()==''){
+				$('#LNameMsg').text('*Last Name cannot be blank');
+				showLNameMsg();
+			}
 			return false;
 		}
+	}else{
+		showPanel1();
+		validateCPassword();
+		if($('#username').val()==''){
+			$('#UNameMsg').text('*Username cannot be blank');
+			showUNameMsg();
+		}
+		if($('#password').val()=='')showPasswordMsg();
+		if(!CPasswordisValid)showCPasswordMsg();
+		return false;
 	}
+}
+function showUserNameTakenErrMsg(){
+	showPanel1();
+	$('#UNameMsg').show();
+}

@@ -21,10 +21,10 @@
 				<h1>SD1340: Mr. Memering</h1>
 			</div>
 		</header>
-		<form id='register' action='php/adduser.php' onsubmit="return formValidate()" method='post'>
+		<form id='register' action='#' onsubmit="return formValidate()" method='post'>
 			<div id='formwrapper'>
 				<div id='panel1'>
-					<div><span class='label'>Username:</span><input class='register' type='text' name='username' id='username'/><span id='UNameMsg' class='errMsg'>*Invalid Username</span></br></div>
+					<div><span class='label'>Username:</span><input class='register' type='text' name='username' id='username'/><span id='UNameMsg' class='errMsg'>*Username already taken</span></br></div>
 					<div><span class='label'>Password:</span><input class='register' type='password' name='password' id='password'/><span id='PasswordMsg' class='errMsg'>*Invalid Password: Must be at least 8 characters, contain upper and lower case letters, and have at least 2 numbers.</span></br></div>
 					<div><span class='label'>Confirm Password:</span><input class='register' type='password' name='cpassword' id='cpassword'/><span id='CPasswordMsg' class='errMsg'>*Passwords Don't Match</span></br></div>
 				</div>
@@ -37,12 +37,13 @@
 					<div><span class='label'>Phone:</span><input class='register' type='tel' name='phone' id='phone'/><span id='PhoneMsg' class='errMsg'>*Invalid Phone Number</span></br></div>
 				</div>
 			</div>
+			<button type='button' id='cancel' class='register' value='cancel'>Cancel</button>
 			<div id='bottomnav'>
 				<div id='buttons'>
 					<button type='button' id='back' class='register' value='back'>&larr;Back</button>
 					<button type='button' id='next' class='register' value='next'>Next&rarr;</button>
-					<input type='submit' class='register' id='registerbtn' value='Register'/>
-				</div>
+					<input type='submit' class='register' name='registerbtn' id='registerbtn' value='Register'/>
+				</div></br>
 				<div id='progressbar'>
 					<div id='progress1' class='progressbar'><p>Step 1</p></div>
 					<div id='progress2' class='progressbar'><p>Step 2</p></div>
@@ -51,5 +52,22 @@
 			</div>
 		</form>
 	</main>
+	<?php
+		session_start();
+		if(isset($_POST['registerbtn'])){
+			require_once('php/mysql_connect.php');
+			mysql_select_db('SD1340') or die(mysql_error());
+			$username=$_POST['username'];
+			if($username!=''){
+				$query=mysql_query("SELECT username FROM users WHERE username='".$username."'");
+				$res=mysql_fetch_row($query);
+				if ($res){
+					echo "<script type='text/javascript'>showUserNameTakenErrMsg();</script>";
+				}else{
+					echo "<script type='text/javascript'>window.location.href='php/adduser.php'</script>";
+				}
+			}
+		}
+	?>
 </body>
 </html>

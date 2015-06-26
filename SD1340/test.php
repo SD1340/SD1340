@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>SD1340 - Log In</title>
+	<title>SD1340 - TEST</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,10 +19,10 @@
 	<main>
 		<header>
 			<div>
-				<h1>SD1340: Mr. Memering</h1>
+				<h1>TEST</h1>
 			</div>
 		</header>
-		<form id='login' action='home.html' onsubmit='return formValidate()' method='post'>
+		<form id='login' method='post'>
 			<div id='loginwrapper'>
 				<div><span id='errMsg'>*Invalid Username or Password</span></div>
 				<div><span class='label'>Username:</span><input class='login' type='text' name='username' id='username_input'/></br></div>
@@ -31,10 +31,38 @@
 				<div><span class='label'>&nbsp;</span><a class='login' id='passwordreset' href='forgot.html'>Forgot Your Password?</a></div>
 			</div>
 			<div id='buttonwrapper'>
-				<input type='submit' id='loginbtn' value='Log In'/>
-				<button type='button' id='registerbtn' value='Register'>Register</button>
+				<input type='submit' id='loginbtn' name='login' value='Log In'/>
+				<button type='button' id='registerbtn' name='register' value='Register'>Register</button>
 			</div>
 		</form>
+		<?php
+			session_start();
+			if(isset($_POST['login'])){
+				require_once('php/mysql_connect.php');
+				mysql_select_db('SD1340') or die(mysql_error());
+				$username=$_POST['username'];
+				$password=$_POST['password'];
+				if($username!='' && $password!=''){
+					$query=mysql_query("SELECT username FROM users WHERE username='".$username."'");
+					$res=mysql_fetch_row($query);
+					if ($res){
+						echo 'username "'.$username.'" already exists, please try another';
+					}else{
+						echo $username.' is unique';
+					}
+					/* $query=mysql_query("SELECT * FROM users WHERE username='".$username."' AND password='".$password."'") or die(mysql_error());
+					$res=mysql_fetch_row($query);
+					if($res){
+						$_SESSION['username']=$username;
+						header('location:home.php');
+					}else{
+						echo "<script type='text/javascript'>$('#errMsg').show();</script>";
+					} */
+				}else{
+					echo "<script type='text/javascript'>$('#errMsg').show();</script>";
+				}
+			}
+		?>
 	</main>
 </body>
 </html>

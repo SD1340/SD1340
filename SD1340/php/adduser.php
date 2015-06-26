@@ -10,6 +10,7 @@
 			$lastname = $_POST['lname'];
 			$email = $_POST['email'];
 			$phone = $_POST['phone'];
+			$userid = NULL;
 			$registerbtn = $_POST['registerbtn'];
 			
 			if(isset($registerbtn)){
@@ -62,7 +63,7 @@
 					require_once('mysqli_connect.php');
 					
 					$query = "INSERT INTO users (username, password, firstname, lastname, email,
-					phone, userid) VALUES (?, ?, ?,	?, ?, ?, NULL)";
+					phone, userid) VALUES (?, ?, ?,	?, ?, ?, ?)";
 					
 					$stmt = mysqli_prepare($dbc, $query);
 					
@@ -75,16 +76,16 @@
 					
 					if($affected_rows == 1){
 						
-						echo 'User Account Created';
-						
 						mysqli_stmt_close($stmt);
 						
 						mysqli_close($dbc);
 						
+						echo "<script>location.href='../useradded.html';</script>";
+						
 					} else {
 						
 						echo 'Error Occurred<br />';
-						echo mysqli_error();
+						echo mysqli_error($dbc);
 						
 						mysqli_stmt_close($stmt);
 						

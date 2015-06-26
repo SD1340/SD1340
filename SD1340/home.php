@@ -17,6 +17,14 @@
 	<script type="text/javascript" src="js/home.js"></script>
 </head>
 <body>
+	<?php
+		session_start();
+		$username = $_SESSION['username'];
+		if(empty($username)){
+			echo 'username = '.$username;
+			echo "<script>location.href='index.php';</script>";
+		}
+	?>
 	<nav id='topnav'>
 		<ul>
 			<li><a href='#' id='menu_div'><img id='menubtn' class='icon' src='imgs/buttons/menu.png'/></a></li>
@@ -39,7 +47,7 @@
 					<li><a href='#'>Lab 5</a></li>
 				</ul>
 			</li>
-			<div id='user'><a id='logout' href='index.html'>log out</a><a href='#' id='profile'><img src='imgs/southparkavatar.png' href='#'/><span id='username'>derrickadkins</span></a></div>
+			<div id='user'><a id='logout' href='php/logout.php'>log out</a><a href='#' id='profile'><img src='imgs/southparkavatar.png' href='#'/><span id='username'><?php echo $username; ?></span></a></div>
 		</ul>
 	</nav>
 	<nav id='hideaway'>

@@ -50,7 +50,7 @@ input{
 #back, #registerbtn{
 	display: none;
 }
-#back, #next{
+#back, #next, #cancel{
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
@@ -111,10 +111,21 @@ input{
 #formwrapper div div{
 	width: 100%;
 }
-.errMsg{
+#UNameMsg, #CPasswordMsg,
+#FNameMsg, #LNameMsg,
+#EmailMsg, #PhoneMsg{
 	color: red;
 	position: relative;
-	display: none;
+	display: none;	
 	float: left;
 	top: 1.3em;
+}
+#PasswordMsg{
+	color: red;
+	position: relative;
+	top: 3.3em;
+	display: none;
+}
+#cancel{
+	text-align: center;
 }

@@ -8,7 +8,7 @@
 			$mysql_user = "derrick";
 			$mysql_password = "password";
 			
-			$dbc = @mysqli_connect($mysql_host,$mysql_user,$mysql_password,$mysql_database)
+			$dbc = @mysql_connect($mysql_host,$mysql_user,$mysql_password,$mysql_database)
 			OR die('Something went wrong'. mysqli_connect_error());
 		?>
 	</body>
