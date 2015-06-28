@@ -28,7 +28,24 @@ $(document).ready(function(){
 			menu();
 		}	
 	});
+	
+	//on page load, show/hide appropriate items, also do the same thing on resize.
+	dynamic_nav();
+	$(window).resize(function(){
+		dynamic_nav();
+	});
 });
+
+function dynamic_nav(){
+	navWidth = $('#topnav').width();
+	userWidth = $('#user').width()+(navWidth*.1);
+	if(userWidth+550 >= navWidth){
+		$('.topnav_txt').hide();
+	}
+	else{
+		$('.topnav_txt').show();
+	}
+}
 
 var menuIsVisible=false;
 var timeout;
