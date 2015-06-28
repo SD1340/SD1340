@@ -8,12 +8,8 @@ $(document).ready(function(){
 function dynamic(){
 	var windowWidth = $(window).width();
 	if(windowWidth>800){
-		//$('.topnav').show();
 		$('#logo').show();
-	}else if(windowWidth<=800 && windowWidth>=500){
-		//$('.topnav').show();
-		$('#logo').hide();
-	}else{
+	}else if(windowWidth<=800){
 		$('#logo').hide();
 	}
 }

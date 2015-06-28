@@ -10,6 +10,7 @@
 	<script type="text/javascript" src='js/jquery.js'></script>
 	<script type="text/javascript" src="js/home.js"></script>
 	<script type="text/javascript" src="js/register.js"></script>
+	
 </head>
 <body>
 	<section id='logo'>

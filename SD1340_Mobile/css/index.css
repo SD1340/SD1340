@@ -6,8 +6,7 @@ html, body{
 main{
 	background-color: #ffffff;
 	padding: 20px 0px;
-	width: 80%;
-	min-width: 800px;
+	width: 100%;
 	margin: 30px auto 0px auto;
 	height: 100%;
 	border-radius: 15px;
