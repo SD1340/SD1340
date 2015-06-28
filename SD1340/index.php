@@ -10,6 +10,7 @@
 	<script type="text/javascript" src='js/jquery.js'></script>
 	<script type="text/javascript" src="js/home.js"></script>
 	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/environment_test.js"></script>
 	
 </head>
 <body>
@@ -38,13 +39,12 @@
 		<?php
 			session_start();
 			if(isset($_POST['login'])){
-				require_once('php/mysql_connect.php');
-				mysql_select_db('SD1340') or die(mysql_error());
 				$username=$_POST['username'];
 				$password=$_POST['password'];
 				if($username!='' && $password!=''){
-					$query=mysql_query("SELECT * FROM users WHERE username='".$username."' AND password='".$password."'") or die(mysql_error());
-					$res=mysql_fetch_row($query);
+					require_once('php/mysqli_connect.php');
+					$query=mysqli_query($dbc, "SELECT * FROM users WHERE username='".$username."' AND password='".$password."'") or die(mysql_error());
+					$res=mysqli_fetch_row($query);
 					if($res){
 						$_SESSION['username']=$username;
 						header('location:home.php');

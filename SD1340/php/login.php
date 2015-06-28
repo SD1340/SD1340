@@ -2,7 +2,6 @@
 	session_start();
 	if(isset($_POST['login'])){
 		require_once('mysqli_connect.php');
-		mysql_select_db('SD1340') or die(mysql_error());
 		$username=$_POST['username'];
 		$password=$_POST['password'];
 		if($username!='' && $password!=''){

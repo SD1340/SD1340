@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	showPanel1();
 	$('#next').click(function(){
 		if($('#panel1').css('display') !== 'none'){
 			validateUserName();
