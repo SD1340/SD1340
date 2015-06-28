@@ -3,10 +3,10 @@
 	</head>
 	<body>
 		<?php
-			$mysql_host = "localhost";
-			$mysql_database = "sd1340";
-			$mysql_user = "derrick";
-			$mysql_password = "password";
+			$mysql_host = "mysql16.000webhost.com";
+			$mysql_database = "a4164421_sd1340";
+			$mysql_user = "a4164421_derrick";
+			$mysql_password = "password1234";
 			
 			$dbc = @mysqli_connect($mysql_host,$mysql_user,$mysql_password,$mysql_database)
 			OR die('Something went wrong'. mysqli_connect_error());
