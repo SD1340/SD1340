@@ -21,7 +21,7 @@
 				<h1>SD1340: Mr. Memering</h1>
 			</div>
 		</header>
-		<form id='register' action='#' onsubmit="return formValidate()" method='post'>
+		<form id='register' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>' onsubmit="return formValidate()" method='post'>
 			<div id='formwrapper'>
 				<div id='panel1'>
 					<div><span class='label'>Username:</span><input class='register' type='text' name='username' id='username'/><span id='UNameMsg' class='errMsg'>*Username already taken</span></br></div>
@@ -53,20 +53,72 @@
 		</form>
 	</main>
 	<?php
-		session_start();
+		$username = $password = $fname = $lname = $email = $phone = "";
 		if(isset($_POST['registerbtn'])){
-			require_once('php/mysql_connect.php');
-			mysql_select_db('SD1340') or die(mysql_error());
-			$username=$_POST['username'];
+			$username = test_input($_POST["username"]);
+			$password = test_input($_POST["password"]);
+			$fname = test_input($_POST["fname"]);
+			$lname = test_input($_POST["lname"]);
+			$email = test_input($_POST["email"]);
+			$phone = test_input($_POST["phone"]);
+			$userid = NULL;
 			if($username!=''){
-				$query=mysql_query("SELECT username FROM users WHERE username='".$username."'");
-				$res=mysql_fetch_row($query);
+				require_once('php/mysqli_connect.php');
+				$query = mysqli_query($dbc, "SELECT username FROM users WHERE username='".$username."'");
+				$res=mysqli_fetch_row($query);
 				if ($res){
 					echo "<script type='text/javascript'>showUserNameTakenErrMsg();</script>";
 				}else{
-					echo "<script type='text/javascript'>window.location.href='php/adduser.php'</script>";
+					$data_missing = array();
+					if(empty($username)){
+						$data_missing[] = 'Username';
+					}
+					if(empty($password)){
+						$data_missing[] = 'Password';
+					}
+					if(empty($fname)){
+						$data_missing[] = 'First Name';
+					}
+					if(empty($lname)){
+						$data_missing[] = 'Last Name';
+					}
+					if(empty($email)){
+						$data_missing[] = 'Email';
+					}
+					if(empty($phone)){
+						$data_missing[] = 'Phone Number';
+					}
+					if(empty($data_missing)){
+						$query = "INSERT INTO users (username, password, firstname, lastname, email, phone, userid) VALUES (?, ?, ?,	?, ?, ?, ?)";
+						$stmt = mysqli_prepare($dbc, $query);
+						mysqli_stmt_bind_param($stmt, "sssssii", $username, $password, $fname, $lname, $email, $phone, $userid);
+						mysqli_stmt_execute($stmt);
+						$affected_rows = mysqli_stmt_affected_rows($stmt);
+						if($affected_rows == 1){
+							mysqli_stmt_close($stmt);
+							mysqli_close($dbc);
+							echo "<script>location.href='useradded.html';</script>";
+						} else {
+							echo 'Error Occurred<br />';
+							echo mysqli_error($dbc);
+							mysqli_stmt_close($stmt);
+							mysqli_close($dbc);
+						}
+					} else {
+						echo 'You need to enter the following data<br />';
+						foreach($data_missing as $missing){
+							echo "$missing<br />";
+						}
+					}
 				}
 			}
+		}
+		
+		function test_input($data){
+			$data = trim($data);
+			$data = stripslashes($data);
+			$data = htmlspecialchars($data);
+			return $data;
 		}
 	?>
 </body>
