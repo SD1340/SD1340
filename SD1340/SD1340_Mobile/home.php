@@ -54,6 +54,7 @@
 	</nav>
 	<nav id='hideaway'>
 		<ul>
+			<li><a href='#' class='hideaway'><?php echo $username; ?>derrick.l.adkins<img class="icon" src='imgs/southparkavatar.png' href='#'/></a></li>
 			<li><a href='#' class='hideaway'>Dashboard<img class='icon' src='imgs/icons/dashboard.png'/></a></li>
 			<li><a href='#' class='hideaway'>Schedule<img class='icon' src='imgs/icons/schedule.png'/></a></li>
 			<li><a href='#' class='hideaway'>Turn In<img class='icon' src='imgs/icons/turnin.png'/></a></li>
@@ -61,6 +62,7 @@
 			<li><a href='#' class='hideaway'>Forum<img class='icon' src='imgs/icons/forum.png'/></a></li>
 			<li><a href='#' class='hideaway'>Presentations/Projects<img class='icon' src='imgs/icons/presentation.png'/></a></li>
 			<li><a href='#' class='hideaway'>User Options<img class='icon' src='imgs/icons/useroptions.png'/></a></li>
+			<li><a href='#' class='hideaway'>Log Out</a></li>
 		</ul>
 	</nav>
 	<section id='logo'>
@@ -144,7 +146,7 @@
 			<ul id='right_footer' class='inner_footer'>
 				<li><a href='#'>Downloads</a></li>
 				<li><a href='#'>Forum</a></li>
-				<li><a href='#'>Presentations/Projects</a></li>
+				<li><a href='#'>Pres./Projects</a></li>
 				<li><a href='#'>User Options</a></li>
 			</ul>
 		</div>

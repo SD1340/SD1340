@@ -1,15 +1,14 @@
 main{
 	background-color: #ffffff;
 	padding: 20px 0px;
-	width: 80%;
-	min-width: 800px;
+	width: 100%;
 }
 #logo{
 	margin-top: 100px;
 	margin-left: 10%;
 }
 #logo img{
-	width: 300px;
+	width: 80%;
 }
 header{
 	width: 100%;
@@ -29,18 +28,15 @@ footer{
 	width: 100%;
 }
 #footer_div{
-	width: 80%;
-	min-width: 800px;
-	margin: 0 auto;
-	padding: 50px;
+	width: 100%;
+	margin-bottom:50px;
 }
 .inner_footer{
-	width: 32%;
+	width: 30%;
 	list-style: none;
 	display: inline-block;
 }
 .inner_footer li{
-	padding-left: 25%;
 	padding-top: 10px;
 }
 .inner_footer li a{
