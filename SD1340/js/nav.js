@@ -41,9 +41,13 @@ function dynamic_nav(){
 	userWidth = $('#user').width()+(navWidth*.1);
 	if(userWidth+550 >= navWidth){
 		$('.topnav_txt').hide();
+		$('#assignments_list').css("width", "230%");
+		$('#labs_list').css("width", "130%");
 	}
 	else{
 		$('.topnav_txt').show();
+		$('#assignments_list').css("width", "100%");
+		$('#labs_list').css("width", "100%");
 	}
 }
 

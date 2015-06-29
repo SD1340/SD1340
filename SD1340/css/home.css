@@ -7,10 +7,7 @@ main{
 .ui-page { 
 	background-color: #0769ad;
 }
-.ui-page-theme-a a:visited, 
-html .ui-bar-a a:visited, 
-html .ui-body-a a:visited, 
-html body .ui-group-theme-a a:visited{
+.ui-overlay-a{
 	color: white;
 }
 #logo{

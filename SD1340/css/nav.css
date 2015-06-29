@@ -13,6 +13,7 @@ ul{
 	left:0px;
 	background-color: #b8b8b8;
 	width: 100%;
+	min-width: 800px;
 	z-index: 99;
 }
 .topnav_li{
@@ -76,9 +77,9 @@ ul{
 	background-color: #b8b8b8;
 	position: absolute;
 	top: 60px;
+	left: -360px;
 	border-right:1px solid black;
 	z-index: 99;
-	max-width: 360px;
 }
 #hideaway ul li a{
 	display: block;
@@ -95,7 +96,7 @@ ul{
 	margin:0 15px;
 }
 #hideaway ul li a{
-	text-align:right;
+	text-align:left;
 }
 main{
 	width: 100%;
@@ -123,6 +124,11 @@ main{
 	text-decoration: none;
 	font-size: 1.2em;
 }
-#user a:active{
+#hideaway ul li a:hover{
+	background-color: #a1a1a1;
+	text-align: right;
+	padding-right:15px;
+}
+#user a:hover{
 	text-decoration: underline;
 }

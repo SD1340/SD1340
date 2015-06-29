@@ -12,6 +12,9 @@
 			color: red;
 			display: none;
 		}
+		h1{
+			font-size: 3em;
+		}
 		#username_input, #password{
 			font-size: 4em;
 		}

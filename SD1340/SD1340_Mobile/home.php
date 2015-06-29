@@ -48,12 +48,11 @@
 					<li><a href='#'>Lab 5</a></li>
 				</ul>
 			</li>
-			<div id='user'><a id='logout' href='php/logout.php'>log out</a><a href='#' id='profile'><img src='imgs/southparkavatar.png' href='#'/><span id='username_nav'><?php echo $username; ?>derrick.l.adkins</span></a></div>
 		</ul>
 	</nav>
 	<nav id='hideaway'>
 		<ul>
-			<li><a href='#' class='hideaway'><?php echo $username; ?>derrick.l.adkins<img class="icon" src='imgs/southparkavatar.png' href='#'/></a></li>
+			<li><a href='#' class='hideaway'><?php echo $username; ?><img class="icon" src='imgs/southparkavatar.png' href='#'/></a></li>
 			<li><a href='#' class='hideaway'>Dashboard<img class='icon' src='imgs/icons/dashboard.png'/></a></li>
 			<li><a href='#' class='hideaway'>Schedule<img class='icon' src='imgs/icons/schedule.png'/></a></li>
 			<li><a href='#' class='hideaway'>Turn In<img class='icon' src='imgs/icons/turnin.png'/></a></li>
