@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<title>SD1340 - Log In</title>
@@ -7,7 +6,22 @@
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	
+	<link rel="stylesheet" href="css/home.css" type="text/css">
+	<style type="text/css">
+		#errMsg{
+			color: red;
+			display: none;
+		}
+		#username_input, #password{
+			font-size: 4em;
+		}
+		.ui-btn, #registerbtn{
+			font-size: 3em;
+		}
+		#getusername, #passwordreset{
+			font-size: 2em;
+		}
+	</style>
 </head>
 <body>
 	<section id='logo'>
@@ -21,7 +35,7 @@
 		</header>
 		<form id='login' method='post'>
 			<div id='loginwrapper'>
-				<div><span id='errMsg' style="color: red; display: none;">*Invalid Username or Password</span></div>
+				<div><span id='errMsg'>*Invalid Username or Password</span></div>
 				<div><input class='login' type='text' name='username' id='username_input' placeholder="Username"/></br></div>
 				<div><a class='login' id='getusername' href='forgot.html'>Forgot Your Username?</a></div>
 				<div><input class='login' type='password' name='password' id='password' placeholder="Password"/></br></div>

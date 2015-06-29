@@ -3,6 +3,12 @@ main{
 	padding: 20px 0px;
 	width: 100%;
 }
+.ui-page { 
+	background-color: #0769ad;
+}
+.ui-overlay-a{
+	color: white;
+}
 #logo{
 	margin-top: 100px;
 	margin-left: 10%;

@@ -1,7 +1,7 @@
 html, body{
 	padding: 0px;
 	margin: 0px;
-	background-color: #0769ad;
+	
 }
 ul{
 	list-style: none;
@@ -83,7 +83,7 @@ ul{
 }
 #hideaway ul li a{
 	display: block;
-	padding: 25px;
+	padding: 15px;
 	margin: -1px;
 	text-decoration: none;
 	color: white;
@@ -100,7 +100,7 @@ ul{
 }
 main{
 	width: 100%;
-	margin: 30px auto 0px auto;
+	margin: 30px auto 10px auto;
 	height: auto;
 }
 #user img{
