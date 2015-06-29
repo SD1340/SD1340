@@ -8,13 +8,15 @@ $(document).ready(function(){
 	$(window).resize(function(){
 		dynamic_nav();
 	});
+	
+	$('#hideaway').width(hideawayWidth);
+	$('#hideaway').css("left", function(){
+		var hw = ((hideawayWidth+1)*-1)+"px";
+		return hw;
+	});
 });
 
-hideawayWidth = $('html').width() * .90;
-$('#hideaway').width(hideawayWidth);
-$('#hideaway').css("left", function(){
-	return ((hideawayWidth+1)*-1);
-});
+var hideawayWidth = $('html').width() * .90;
 	
 function dynamic_nav(){
 	navWidth = $('#topnav').width();
