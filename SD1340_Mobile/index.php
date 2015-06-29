@@ -4,17 +4,14 @@
 	<title>SD1340 - Log In</title>
 	<meta charset="utf-8">
 	<link rel="icon" href="imgs/icons/favicon.png" type="image/png">
-	<link rel="stylesheet" href="css/index.css" type="text/css">
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script type="text/javascript" src="js/home.js"></script>
-	<script type="text/javascript" src="js/index.js"></script>
 	
 </head>
 <body>
 	<section id='logo'>
-		<img src='imgs/logo.png'/>
+		<img src='imgs/logo.png' style="width: 80%;"/>
 	</section>
 	<main>
 		<header>
@@ -24,11 +21,11 @@
 		</header>
 		<form id='login' method='post'>
 			<div id='loginwrapper'>
-				<div><span id='errMsg'>*Invalid Username or Password</span></div>
-				<div><span class='label'>Username:</span><input class='login' type='text' name='username' id='username_input'/></br></div>
-				<div><span class='label'>&nbsp;</span><a class='login' id='getusername' href='forgot.html'>Forgot Your Username?</a></div>
-				<div><span class='label'>Password:</span><input class='login' type='password' name='password' id='password'/></br></div>
-				<div><span class='label'>&nbsp;</span><a class='login' id='passwordreset' href='forgot.html'>Forgot Your Password?</a></div>
+				<div><span id='errMsg' style="color: red; display: none;">*Invalid Username or Password</span></div>
+				<div><input class='login' type='text' name='username' id='username_input' placeholder="Username"/></br></div>
+				<div><a class='login' id='getusername' href='forgot.html'>Forgot Your Username?</a></div>
+				<div><input class='login' type='password' name='password' id='password' placeholder="Password"/></br></div>
+				<div><a class='login' id='passwordreset' href='forgot.html'>Forgot Your Password?</a></div>
 			</div>
 			<div id='buttonwrapper'>
 				<input type='submit' id='loginbtn' name='login' value='Log In'/>
