@@ -9,7 +9,9 @@
 	<link rel="stylesheet" href="css/nav.css" type="text/css">
 	<link rel="stylesheet" href="css/slider.css" type="text/css">
 	<link rel="stylesheet" href="css/home.css" type="text/css">
-	<script type="text/javascript" src='js/jquery.js'></script>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript" src='js/nav.js'></script>
 	<script type="text/javascript" src="js/jssor.js"></script>
     <script type="text/javascript" src="js/jssor.slider.js"></script>
@@ -22,7 +24,7 @@
 		$username = $_SESSION['username'];
 		if(empty($username)){
 			echo 'username = '.$username;
-			echo "<script>location.href='index.php';</script>";
+			//echo "<script>location.href='index.php';</script>";
 		}
 	?>
 	<nav id='topnav'>
@@ -47,7 +49,7 @@
 					<li><a href='#'>Lab 5</a></li>
 				</ul>
 			</li>
-			<div id='user'><a id='logout' href='php/logout.php'>log out</a><a href='#' id='profile'><img src='imgs/southparkavatar.png' href='#'/><span id='username_nav'><?php echo $username; ?></span></a></div>
+			<div id='user'><a id='logout' href='php/logout.php'>log out</a><a href='#' id='profile'><img src='imgs/southparkavatar.png' href='#'/><span id='username_nav'><?php echo $username; ?>derrick.l.adkins</span></a></div>
 		</ul>
 	</nav>
 	<nav id='hideaway'>
