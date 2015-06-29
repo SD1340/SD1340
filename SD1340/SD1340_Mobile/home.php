@@ -24,7 +24,7 @@
 		$username = $_SESSION['username'];
 		if(empty($username)){
 			echo 'username = '.$username;
-			//echo "<script>location.href='index.php';</script>";
+			echo "<script>location.href='index.php';</script>";
 		}
 	?>
 	<nav id='topnav'>
@@ -32,7 +32,7 @@
 			<li id='btn1'><a href='#' id='menu_div'><img id='menubtn' class='icon' src='imgs/buttons/menu.png'/></a></li>
 			<li id='btn2' class='topnav_li'><a href='#' class='topnav'><img class='icon' src='imgs/icons/home.png'/><span class='topnav_txt'>Home</span></a></li>
 			<li id='btn3' class='topnav_li'><a href='#' class='topnav'><img class='icon' src='imgs/icons/assignments.png'/><span class='topnav_txt'>Assignments</span></a>
-				<ul>
+				<ul style="width: 225%;">
 					<li><a href='#'>Assignment 1</a></li>
 					<li><a href='#'>Assignment 2</a></li>
 					<li><a href='#'>Assignment 3</a></li>
@@ -41,7 +41,7 @@
 				</ul>
 			</li>
 			<li id='btn4' class='topnav_li'><a href='#' class='topnav'><img class='icon' src='imgs/icons/labs.png'/><span class='topnav_txt'>Labs</span></a>
-				<ul>
+				<ul style="width: 125%;">
 					<li><a href='#'>Lab 1</a></li>
 					<li><a href='#'>Lab 2</a></li>
 					<li><a href='#'>Lab 3</a></li>

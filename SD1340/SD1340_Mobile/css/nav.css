@@ -75,12 +75,10 @@ ul{
 	padding-left: 10px;
 }
 #hideaway{
-	width: 370px;
 	background-color: #b8b8b8;
 	position: absolute;
 	top: 60px;
 	border-right:1px solid black;
-	left:-371px;
 	z-index: 99;
 }
 #hideaway ul li a{
@@ -98,18 +96,12 @@ ul{
 	margin:0 15px;
 }
 #hideaway ul li a{
-	text-align:left;
-}
-#hideaway ul li a:hover{
-	background-color: #a1a1a1;
-	text-align: right;
-	padding-right:0px;
+	text-align:right;
 }
 main{
-	width: 80%;
+	width: 100%;
 	margin: 30px auto 0px auto;
-	height: 100%;
-	border-radius: 15px;
+	height: auto;
 }
 #user img{
 	width: 55px;
@@ -132,6 +124,6 @@ main{
 	text-decoration: none;
 	font-size: 1.2em;
 }
-#user a:hover{
+#user a:active{
 	text-decoration: underline;
 }
