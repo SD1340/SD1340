@@ -6,11 +6,13 @@
 	<meta name="viewport" content="width=device-width">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="imgs/icons/favicon.png" type="image/png">
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<link rel="stylesheet" href="css/home.css" type="text/css">
 	<link rel="stylesheet" href="css/register.css" type="text/css">
-	<script type="text/javascript" src='js/jquery.js'></script>
 	<script type="text/javascript" src="js/home.js"></script>
 	<script type="text/javascript" src="js/register.js"></script>
-	
 </head>
 <body>
 	<section id='logo'>
@@ -25,24 +27,24 @@
 		<form id='register' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>' onsubmit="return formValidate()" method='post'>
 			<div id='formwrapper'>
 				<div id='panel1'>
-					<div><span class='label'>Username:</span><input class='register' type='text' name='username' id='username'/><span id='UNameMsg' class='errMsg'>*Username already taken</span></br></div>
-					<div><span class='label'>Password:</span><input class='register' type='password' name='password' id='password'/><span id='PasswordMsg' class='errMsg'>*Invalid Password: Must be at least 8 characters, contain upper and lower case letters, and have at least 2 numbers.</span></br></div>
-					<div><span class='label'>Confirm Password:</span><input class='register' type='password' name='cpassword' id='cpassword'/><span id='CPasswordMsg' class='errMsg'>*Passwords Don't Match</span></br></div>
+					<div><input class='register' type='text' placeholder="Username" name='username' id='username'/><span id='UNameMsg' class='errMsg'>*Username already taken</span></br></div>
+					<div><input class='register' type='password' placeholder="Password" name='password' id='password'/><span id='PasswordMsg' class='errMsg'>*Invalid Password: Must be at least 8 characters, contain upper and lower case letters, and have at least 2 numbers.</span></br></div>
+					<div><input class='register' type='password' placeholder="Confirm Password" name='cpassword' id='cpassword'/><span id='CPasswordMsg' class='errMsg'>*Passwords Don't Match</span></br></div>
 				</div>
 				<div id='panel2'>
-					<div><span class='label'>First Name:</span><input class='register' type='text' name='fname' id='fname'/><span id='FNameMsg' class='errMsg'>*Invalid First Name</span></br></div>
-					<div><span class='label'>Last Name:</span><input class='register' type='text' name='lname' id='lname'/><span id='LNameMsg' class='errMsg'>*Invalid Last Name</span></br></div>
+					<div><input class='register' type='text' placeholder="First Name" name='fname' id='fname'/><span id='FNameMsg' class='errMsg'>*Invalid First Name</span></br></div>
+					<div><input class='register' type='text' placeholder="Last Name" name='lname' id='lname'/><span id='LNameMsg' class='errMsg'>*Invalid Last Name</span></br></div>
 				</div>
 				<div id='panel3'>
-					<div><span class='label'>Email:</span><input class='register' type='email' name='email' id='email'/><span id='EmailMsg' class='errMsg'>*Invalid Email</span></br></div>
-					<div><span class='label'>Phone:</span><input class='register' type='tel' name='phone' id='phone'/><span id='PhoneMsg' class='errMsg'>*Invalid Phone Number</span></br></div>
+					<div><input class='register' type='email' placeholder="Email" name='email' id='email'/><span id='EmailMsg' class='errMsg'>*Invalid Email</span></br></div>
+					<div><input class='register' type='tel' placeholder="Phone" name='phone' id='phone'/><span id='PhoneMsg' class='errMsg'>*Invalid Phone Number</span></br></div>
 				</div>
 			</div>
-			<button type='button' id='cancel' class='register' value='cancel'>Cancel</button>
+			
 			<div id='bottomnav'>
 				<div id='buttons'>
-					<button type='button' id='back' class='register' value='back'>&larr;Back</button>
-					<button type='button' id='next' class='register' value='next'>Next&rarr;</button>
+					<span u="arrowleft" id="back" class="jssora05l"></span>
+					<span u="arrowright" id="next" class="jssora05r"></span>
 					<input type='submit' class='register' name='registerbtn' id='registerbtn' value='Register'/>
 				</div></br>
 				<div id='progressbar'>
@@ -50,6 +52,7 @@
 					<div id='progress2' class='progressbar'><p>Step 2</p></div>
 					<div id='progress3' class='progressbar'><p>Step 3</p></div>
 				</div>
+				<button type='button' id='cancel' class='register' value='cancel'>Cancel</button>
 			</div>
 		</form>
 	</main>

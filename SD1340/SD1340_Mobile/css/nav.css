@@ -91,6 +91,9 @@ ul{
 	font-family: Arial, Helvetica, sans-serif;
 	border-bottom:1px solid black;
 }
+#hideaway ul li:active{
+	background-color: background-color: #a1a1a1;
+}
 #hideaway ul li a img{
 	margin:0 15px;
 }

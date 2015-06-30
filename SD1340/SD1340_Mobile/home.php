@@ -60,7 +60,7 @@
 			<li><a href='#' class='hideaway'>Forum<img class='icon' src='imgs/icons/forum.png'/></a></li>
 			<li><a href='#' class='hideaway'>Presentations/Projects<img class='icon' src='imgs/icons/presentation.png'/></a></li>
 			<li><a href='#' class='hideaway'>User Options<img class='icon' src='imgs/icons/useroptions.png'/></a></li>
-			<li><a href='#' class='hideaway'>Log Out</a></li>
+			<li><a href='php/logout.php' class='hideaway'>Log Out</a></li>
 		</ul>
 	</nav>
 	<section id='logo'>

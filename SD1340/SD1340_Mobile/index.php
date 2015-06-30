@@ -28,7 +28,7 @@
 </head>
 <body>
 	<section id='logo'>
-		<img src='imgs/logo.png' style="width: 80%;"/>
+		<img src='imgs/logo.png'/>
 	</section>
 	<main>
 		<header>
