@@ -43,6 +43,7 @@
 				if($check == false) {
 					$uploadOk = 0;
 				}
+				$imageFileType = strtolower($imageFileType);
 				if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 				&& $imageFileType != "gif" ) {
 					echo "<script>$('#errMsg').show();</script>";
