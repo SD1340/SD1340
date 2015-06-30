@@ -19,6 +19,7 @@
 </head>
 <body>
 	<?php
+		header('location:home.php');
 		session_start();
 		$username = $_SESSION['username'];
 		$filepath = '../../imgs/userimages/';
