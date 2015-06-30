@@ -27,3 +27,9 @@ function liveValidate(){
 		$('#submit').prop('disabled', true);
 	}
 }
+
+function outputMsg(){
+	$('#forgot').hide();
+	output = "<center><p>An email has been sent to "+$('#email').val()+", have a nice day!</p></br><a href='index.php'>Continue to login page</a></center>";
+	$('main').append(output);
+}

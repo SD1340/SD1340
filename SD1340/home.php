@@ -20,8 +20,13 @@
 	<?php
 		session_start();
 		$username = $_SESSION['username'];
+		$filepath = 'imgs/userimages/';
+		$image = $_SESSION['userimage'];
+		if (empty($image)){
+			$image='default.png';
+		}
+		$userimage = $filepath . $image;
 		if(empty($username)){
-			echo 'username = '.$username;
 			echo "<script>location.href='index.php';</script>";
 		}
 	?>
@@ -47,7 +52,7 @@
 					<li><a href='#'>Lab 5</a></li>
 				</ul>
 			</li>
-			<div id='user'><a id='logout' href='php/logout.php'>log out</a><a href='#' id='profile'><img src='imgs/southparkavatar.png' href='#'/><span id='username_nav'><?php echo $username; ?></span></a></div>
+			<div id='user'><a id='logout' href='php/logout.php'>log out</a><a href='#' id='profile'><img src='<?php echo $userimage; ?>' href='#'/><span id='username_nav'><?php echo $username; ?></span></a></div>
 		</ul>
 	</nav>
 	<nav id='hideaway'>
@@ -58,11 +63,11 @@
 			<li><a href='#' class='hideaway'>Downloads<img class='icon' src='imgs/icons/download.png'/></a></li>
 			<li><a href='#' class='hideaway'>Forum<img class='icon' src='imgs/icons/forum.png'/></a></li>
 			<li><a href='#' class='hideaway'>Presentations/Projects<img class='icon' src='imgs/icons/presentation.png'/></a></li>
-			<li><a href='#' class='hideaway'>User Options<img class='icon' src='imgs/icons/useroptions.png'/></a></li>
+			<li><a href='useroptions/uploaduserimage.php' class='hideaway'>User Options<img class='icon' src='imgs/icons/useroptions.png'/></a></li>
 		</ul>
 	</nav>
-	<section id='logo'>
-		<img src='imgs/logo.png'/>
+	<section id="logodiv">
+		<img src='imgs/logo.png' id="logo"/>
 	</section>
 	<main>
 		<header>

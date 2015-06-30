@@ -108,7 +108,7 @@
 					} else {
 						echo 'You need to enter the following data<br />';
 						foreach($data_missing as $missing){
-							echo "$missing<br />";
+							echo "$missing<br/>";
 						}
 					}
 				}

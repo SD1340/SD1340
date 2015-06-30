@@ -26,7 +26,7 @@ $(document).ready(function(){
 			console.log('event target id: ' + e.target.id);
 			stopAutoHide();
 			menu();
-		}	
+		}
 	});
 	
 	//on page load, show/hide appropriate items, also do the same thing on resize.

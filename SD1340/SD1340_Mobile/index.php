@@ -51,6 +51,9 @@
 		</form>
 		<?php
 			session_start();
+			if(isset($_SESSION['username'])){
+				echo "<script>location.href='home.php';</script>";
+			}
 			if(isset($_POST['login'])){
 				$username=$_POST['username'];
 				$password=$_POST['password'];
@@ -59,7 +62,8 @@
 					$query=mysqli_query($dbc, "SELECT * FROM users WHERE username='".$username."' AND password='".$password."'") or die(mysql_error());
 					$res=mysqli_fetch_row($query);
 					if($res){
-						$_SESSION['username']=$username;
+						$_SESSION['username']=$res[1];
+						$_SESSION['userimage']=$res[7];
 						header('location:home.php');
 					}else{
 						echo "<script type='text/javascript'>$('#errMsg').show();</script>";
@@ -67,6 +71,10 @@
 				}else{
 					echo "<script type='text/javascript'>$('#errMsg').show();</script>";
 				}
+			}
+			if(isset($_POST['forgot'])){
+				$forgot = $_POST['forgot'];
+				header('location:forgot.php');
 			}
 		?>
 	</main>

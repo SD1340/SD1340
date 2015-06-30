@@ -1,7 +1,11 @@
+html{
+	background-color: #0769ad;
+}
 main{
 	background-color: #ffffff;
 	padding: 2em 0px;
-	width: 100%;
+	width: 80%;
+	min-width: 800px;
 	border-radius: 2em;
 }
 .ui-page { 
@@ -12,10 +16,14 @@ main{
 }
 #logo{
 	margin-top: 100px;
-	margin-left: 10%;
+	width: 30%;
+	min-width: 250px;
+	max-width: 400px;
 }
-#logo img{
+#logodiv{
 	width: 80%;
+	min-width: 800px;
+	margin: 0 auto;
 }
 header{
 	width: 100%;
@@ -35,8 +43,9 @@ footer{
 	width: 100%;
 }
 #footer_div{
-	width: 100%;
-	margin-bottom:50px;
+	width: 80%;
+	min-width: 800px;
+	margin: 10px auto 50px auto;
 }
 .inner_footer{
 	width: 30%;
@@ -49,6 +58,7 @@ footer{
 .inner_footer li a{
 	color: white;
 	text-decoration: none;
+	padding-left: 40%;
 }
 .inner_footer li a:hover{
 	text-decoration: underline;

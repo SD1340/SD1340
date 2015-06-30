@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<title>SD1340 - Log In</title>
@@ -26,17 +25,23 @@
 			<div id='loginwrapper'>
 				<div><span id='errMsg'>*Invalid Username or Password</span></div>
 				<div><span class='label'>Username:</span><input class='login' type='text' name='username' id='username_input'/></br></div>
-				<div><span class='label'>&nbsp;</span><a class='login' id='getusername' href='forgot.html'>Forgot Your Username?</a></div>
+				<div><span class='label'>&nbsp;</span><a class='login' id='getusername' href='forgot.html' onclick="forgot()">Forgot Your Username?</a></div>
 				<div><span class='label'>Password:</span><input class='login' type='password' name='password' id='password'/></br></div>
-				<div><span class='label'>&nbsp;</span><a class='login' id='passwordreset' href='forgot.html'>Forgot Your Password?</a></div>
+				<div><span class='label'>&nbsp;</span><a class='login' id='passwordreset' href='forgot.html' onclick="forgot()">Forgot Your Password?</a></div>
 			</div>
 			<div id='buttonwrapper'>
 				<input type='submit' id='loginbtn' name='login' value='Log In'/>
 				<button type='button' id='registerbtn' name='register' value='Register'>Register</button>
 			</div>
 		</form>
+		<form id="forgot_form" method="post">
+			<input type="hidden" value="" name="forgot" id="forgotval">
+		</form>
 		<?php
 			session_start();
+			if(isset($_SESSION['username'])){
+				echo "<script>location.href='home.php';</script>";
+			}
 			if(isset($_POST['login'])){
 				$username=$_POST['username'];
 				$password=$_POST['password'];
@@ -45,7 +50,8 @@
 					$query=mysqli_query($dbc, "SELECT * FROM users WHERE username='".$username."' AND password='".$password."'") or die(mysql_error());
 					$res=mysqli_fetch_row($query);
 					if($res){
-						$_SESSION['username']=$username;
+						$_SESSION['username']=$res[1];
+						$_SESSION['userimage']=$res[7];
 						header('location:home.php');
 					}else{
 						echo "<script type='text/javascript'>$('#errMsg').show();</script>";
@@ -53,6 +59,10 @@
 				}else{
 					echo "<script type='text/javascript'>$('#errMsg').show();</script>";
 				}
+			}
+			if(isset($_POST['forgot'])){
+				$forgot = $_POST['forgot'];
+				header('location:forgot.php');
 			}
 		?>
 	</main>
