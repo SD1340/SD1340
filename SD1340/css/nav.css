@@ -104,7 +104,7 @@ main{
 	height: auto;
 }
 #user img{
-	width: 55px;
+	height: 55px;
 	float: right;
 	border-radius: 27px;
 	overflow: hidden;

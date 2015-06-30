@@ -90,7 +90,7 @@
 						$data_missing[] = 'Phone Number';
 					}
 					if(empty($data_missing)){
-						$query = "INSERT INTO users (username, password, firstname, lastname, email, phone, userid) VALUES (?, ?, ?,	?, ?, ?, ?)";
+						$query = "INSERT INTO users (username, password, firstname, lastname, email, phone, userid) VALUES (?, ?, ?, ?, ?, ?, ?)";
 						$stmt = mysqli_prepare($dbc, $query);
 						mysqli_stmt_bind_param($stmt, "sssssii", $username, $password, $fname, $lname, $email, $phone, $userid);
 						mysqli_stmt_execute($stmt);
