@@ -35,7 +35,8 @@
 		</form>
 		<?php
 			session_start();
-			if(empty($_SESSION['username'])){
+			$username = $_SESSION['username'];
+			if(empty($username)){
 				echo "<script>location.href='../index.php';</script>";
 			}
 		
