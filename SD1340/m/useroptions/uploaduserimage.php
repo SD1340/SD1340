@@ -40,11 +40,10 @@
 			}
 		
 			$target_dir = "../../imgs/userimages/";
-			$db_dir = "imgs/userimages/";
 			$uploadOk = 1;
 			if(isset($_POST['submit'])){
 				$imageFileType = pathinfo(basename( $_FILES["image"]["name"]),PATHINFO_EXTENSION);
-				$target_file = $target_dir . $username . '.' . $imageFileType;
+				$target_file = $username . '.' . $imageFileType;
 				$check = getimagesize($_FILES["image"]["tmp_name"]);
 				if($check == false) {
 					$uploadOk = 0;

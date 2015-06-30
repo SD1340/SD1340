@@ -21,7 +21,7 @@
 	<?php
 		session_start();
 		$username = $_SESSION['username'];
-		$filepath = '../imgs/userimages/';
+		$filepath = '../../imgs/userimages/';
 		$image = $_SESSION['userimage'];
 		if (empty($image)){
 			$image='default.png';

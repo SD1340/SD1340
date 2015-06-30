@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	if($('html').width()<=800){
-		window.location.href="SD1340_Mobile/index.php";
+		window.location="http://m.sd1340.herobo.com";
 	}
 	dynamic();
 	$(window).resize(function(){
