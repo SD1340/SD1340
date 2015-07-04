@@ -4,24 +4,29 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<link rel="icon" href="imgs/icons/favicon.png" type="image/png">
-	<link rel="stylesheet" href="css/nav.css" type="text/css">
-	<link rel="stylesheet" href="css/slider.css" type="text/css">
-	<link rel="stylesheet" href="css/home.css" type="text/css">
-	<script type="text/javascript" src='js/nav.js'></script>
-	<script type="text/javascript" src="js/jssor.js"></script>
-    <script type="text/javascript" src="js/jssor.slider.js"></script>
-	<script type="text/javascript" src="js/slider.js"></script>
-	<script type="text/javascript" src="js/home.js"></script>
+	<script type="text/javascript" src='js/jquery.js'></script>
+		<link rel="stylesheet" href="css/nav.css" type="text/css">
+		<link rel="stylesheet" href="css/slider.css" type="text/css">
+		<link rel="stylesheet" href="css/home.css" type="text/css">
+		<script type="text/javascript" src="js/jssor.js"></script>
+		<script type="text/javascript" src="js/jssor.slider.js"></script>
+		<script type="text/javascript" src="js/slider.js"></script>
+		<script type="text/javascript" src="js/home.js"></script>
+		<script type="text/javascript" src="js/nav.js"></script>
+		
 </head>
 <body>
 	<?php
 		session_start();
 		$username = $_SESSION['username'];
-		$filepath = 'imgs/userimages/';
+		$url = $_SERVER['HTTP_HOST'];
+		$testing = strpos($url, 'host');
+		if($testing == 0){
+			$filepath = 'http://sd1340.herobo.com/imgs/userimages/';
+		}else{
+			$filepath = '../imgs/userimages/';
+		}
 		$image = $_SESSION['userimage'];
 		if (empty($image)){
 			$image='default.png';
@@ -57,7 +62,7 @@
 	</nav>
 	<nav id='hideaway'>
 		<ul>
-			<li><a href='#' class='hideaway'><?php echo $username; ?><img class="icon" src='<?php echo $userimage; ?>' href='#'/></a></li>
+			<li><a href='#' class='hideaway'><?php echo $username; ?><img class="icon" id="userimg" src="<?php echo $userimage; ?>" href='#'/></a></li>
 			<li><a href='#' class='hideaway'>Dashboard<img class='icon' src='imgs/icons/dashboard.png'/></a></li>
 			<li><a href='#' class='hideaway'>Schedule<img class='icon' src='imgs/icons/schedule.png'/></a></li>
 			<li><a href='#' class='hideaway'>Turn In<img class='icon' src='imgs/icons/turnin.png'/></a></li>
@@ -73,7 +78,6 @@
 	</section>
 	<main>
 		<header>
-		<?php echo $userimage ?>
 			<div>
 				<h1>SD1340: Mr. Memering</h1>
 			</div>

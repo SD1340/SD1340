@@ -4,9 +4,7 @@
 	<body>
 		<?php
 			$url = $_SERVER['HTTP_HOST'];
-			echo 'url = '.$url.'</br>';
 			$testing = strpos($url, 'host');
-			echo 'testing = '.$testing;
 			if($testing == 0){
 				$mysql_host = "mysql16.000webhost.com";
 				$mysql_database = "a4164421_sd1340";

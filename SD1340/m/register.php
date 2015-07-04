@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<title>SD1340 - Register</title>
@@ -6,13 +5,28 @@
 	<meta name="viewport" content="width=device-width">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="imgs/icons/favicon.png" type="image/png">
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script type="text/javascript" src='js/jquery.js'></script>
 	<link rel="stylesheet" href="css/home.css" type="text/css">
 	<link rel="stylesheet" href="css/register.css" type="text/css">
 	<script type="text/javascript" src="js/home.js"></script>
 	<script type="text/javascript" src="js/register.js"></script>
+	<?php
+		if(isset($_POST['registerbtn'])){
+			$username = test_input($_POST["username"]);
+			$password = test_input($_POST["password"]);
+			$fname = test_input($_POST["fname"]);
+			$lname = test_input($_POST["lname"]);
+			$email = test_input($_POST["email"]);
+			$phone = test_input($_POST["phone"]);
+		}else{
+			$username = '';
+			$password = '';
+			$fname = '';
+			$lname = '';
+			$email = '';
+			$phone = '';
+		}
+	?>
 </head>
 <body>
 	<section id='logo'>
@@ -70,9 +84,17 @@
 				require_once('php/mysqli_connect.php');
 				$query = mysqli_query($dbc, "SELECT username FROM users WHERE username='".$username."'");
 				$res=mysqli_fetch_row($query);
+				$query2 = mysqli_query($dbc, "SELECT email FROM users WHERE email='".$email."'");
+				$res2=mysqli_fetch_row($query2);
 				if ($res){
 					echo "<script type='text/javascript'>showUserNameTakenErrMsg();</script>";
-				}else{
+					$okaytoprocess = false;
+				}
+				if ($res2){
+					echo "<script type='text/javascript'>alert('It seems you already have an account with this email. Use a different email or log in to the account associated with this email. If you forgot your username or password, click the link to get your username or reset your password on the log in page.');</script>";
+					$okaytoprocess = false;
+				}
+				if($okaytoprocess){
 					$data_missing = array();
 					if(empty($username)){
 						$data_missing[] = 'Username';

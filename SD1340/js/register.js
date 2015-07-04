@@ -240,12 +240,12 @@ function formValidate(){
 			if($('#email').val()!=''&&$('#phone').val()!=''&&EmailisValid&&PhoneisValid){
 					return true;
 			}else{
-				if($('#email').val()==''){
+				if($('#email').val()=='' | !EmailisValid){
 					showEmailMsg();
 				}else{
 					$('#EmailMsg').hide();
 				}
-				if($('#phone').val()==''){
+				if($('#phone').val()=='' | !PhoneisValid){
 					showPhoneMsg();
 				}else{
 					$('#PhoneMsg').hide();

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	showPanel1();
-	$('.ui-input-btn').click(function(){
+	$('#registerbtn').click(function(){
 		console.log('click');
 		formValidate();
 	});
@@ -126,7 +126,7 @@ $(document).ready(function(){
 		}else{}
 	});
 	$('#cancel').click(function(){
-		window.location.href='../index.php';
+		window.location.href='index.php';
 	});
 });
 
@@ -136,8 +136,7 @@ function showPanel1(){
 	$('#panel3').hide();
 	$('#next').show();
 	$('#back').hide();
-	$('.ui-btn').hide();
-	$('#cancel').show();
+	$('#registerbtn').hide();
 	$('#progressbar').css('backgroundColor', '#b8b8b8');
 	$('#progress1').css('backgroundColor', '#ff9933');
 	$('#progress2').css('backgroundColor', '#b8b8b8');
@@ -149,8 +148,7 @@ function showPanel2(){
 	$('#panel3').hide();
 	$('#next').show();
 	$('#back').show();
-	$('.ui-btn').hide();
-	$('#cancel').show();
+	$('#registerbtn').hide();
 	$('#progress1').css('backgroundColor', '#b8b8b8');
 	$('#progress2').css('backgroundColor', '#ff9933');
 	$('#progressbar').css('backgroundColor', '#b8b8b8');
@@ -162,8 +160,7 @@ function showPanel3(){
 	$('#panel3').show();
 	$('#next').hide();
 	$('#back').show();
-	$('.ui-btn').show();
-	$('#cancel').show();
+	$('#registerbtn').show();
 	$('#progressbar').css('backgroundColor', '#ff9933');
 	$('#progress2').css('backgroundColor', '#b8b8b8');
 	$('#progress1').css('backgroundColor', '#b8b8b8');
@@ -247,12 +244,12 @@ function formValidate(){
 			if($('#email').val()!=''&&$('#phone').val()!=''&&EmailisValid&&PhoneisValid){
 					return true;
 			}else{
-				if($('#email').val()==''){
+				if($('#email').val()=='' | !EmailisValid){
 					showEmailMsg();
 				}else{
 					$('#EmailMsg').hide();
 				}
-				if($('#phone').val()==''){
+				if($('#phone').val()=='' | !PhoneisValid){
 					showPhoneMsg();
 				}else{
 					$('#PhoneMsg').hide();

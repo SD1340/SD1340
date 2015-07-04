@@ -1,65 +1,35 @@
 html, body{
-	padding: 0px;
-	margin: 0px;
+	margin: 0;
+	padding: 0;
 	background-color: #0769ad;
 }
 main{
-	background-color: #ffffff;
-	padding: 20px 0px;
-	width: 100%;
-	margin: 30px auto 0px auto;
-	height: 100%;
-	border-radius: 15px;
+	height: auto;
+	background-color: white;
+	padding: 1em;
+	border-radius: 1em;
 }
 #logo{
-	margin-top: 25px;
 	margin-left: 10%;
 }
 #logo img{
-	width: 300px;
-}
-header{
-	width: 100%;
-}
-header div{
 	width: 80%;
-	margin: 0 auto;
-}
-header div h1{
-	font-weight: bold;
-	text-align: center;
-}
-form{
-	text-align: center;
-	height: 200px;
-}
-input{
-	margin-top: 20px;
-	margin-bottom: 10px;
-}
-#registerbtn{
-	margin-left: 20px;
-}
-.label{
-	text-align: right;
-	width: 45%;
-	padding-right: 2%;
-	display: block;
-	float: left;
-	position: relative;
-	top: 1.3em;
-}
-#login .login{
-	text-align: left;
-	display: block;
-	float: left;
-}
-#buttonwrapper{
-	display: block;
-	width: 100%;
-	float: left;
 }
 #errMsg{
 	color: red;
 	display: none;
+}
+#username_input, #password{
+	width: 100%;
+	padding: .5em;
+	font-size: 1em;
+	margin: 1em 0em;
+	border-radius: .5em;
+}
+#loginbtn, #registerbtn{
+	width: 100%;
+	padding: .5em;
+	border-radius: .5em;
+	font-size: 1em;
+	margin: 1em 0px;
 }

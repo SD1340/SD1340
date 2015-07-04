@@ -1,17 +1,13 @@
+html,body{
+	margin: 0;
+	padding: 0;
+	background-color: #0769ad;
+}
 main{
 	background-color: #ffffff;
 	padding: 2em 0px;
 	width: 100%;
 	border-radius: 2em;
-}
-.ui-page { 
-	background-color: #0769ad;
-}
-.ui-page-theme-a a:visited, 
-html .ui-bar-a a:visited, 
-html .ui-body-a a:visited, 
-html body .ui-group-theme-a a:visited{
-	color: white;
 }
 #logo{
 	margin-top: 100px;
@@ -53,6 +49,7 @@ footer{
 .inner_footer li a{
 	color: white;
 	text-decoration: none;
+	padding-left: 10%;
 }
 .inner_footer li a:hover{
 	text-decoration: underline;

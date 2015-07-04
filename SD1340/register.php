@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
 	<title>SD1340 - Register</title>
@@ -10,7 +9,23 @@
 	<script type="text/javascript" src='js/jquery.js'></script>
 	<script type="text/javascript" src="js/home.js"></script>
 	<script type="text/javascript" src="js/register.js"></script>
-	
+	<?php
+		if(isset($_POST['registerbtn'])){
+			$username = test_input($_POST["username"]);
+			$password = test_input($_POST["password"]);
+			$fname = test_input($_POST["fname"]);
+			$lname = test_input($_POST["lname"]);
+			$email = test_input($_POST["email"]);
+			$phone = test_input($_POST["phone"]);
+		}else{
+			$username = '';
+			$password = '';
+			$fname = '';
+			$lname = '';
+			$email = '';
+			$phone = '';
+		}
+	?>
 </head>
 <body>
 	<section id='logo'>
@@ -25,17 +40,17 @@
 		<form id='register' action='<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>' onsubmit="return formValidate()" method='post'>
 			<div id='formwrapper'>
 				<div id='panel1'>
-					<div><span class='label'>Username:</span><input class='register' type='text' name='username' id='username'/><span id='UNameMsg' class='errMsg'>*Username already taken</span></br></div>
-					<div><span class='label'>Password:</span><input class='register' type='password' name='password' id='password'/><span id='PasswordMsg' class='errMsg'>*Invalid Password: Must be at least 8 characters, contain upper and lower case letters, and have at least 2 numbers.</span></br></div>
+					<div><span class='label'>Username:</span><input class='register' type='text' name='username' id='username' value="<?php echo $username ?>"/><span id='UNameMsg' class='errMsg'>*Username already taken</span></br></div>
+					<div><span class='label'>Password:</span><input class='register' type='password' name='password' id='password' value="<?php echo $password ?>"/><span id='PasswordMsg' class='errMsg'>*Invalid Password: Must be at least 8 characters, contain upper and lower case letters, and have at least 2 numbers.</span></br></div>
 					<div><span class='label'>Confirm Password:</span><input class='register' type='password' name='cpassword' id='cpassword'/><span id='CPasswordMsg' class='errMsg'>*Passwords Don't Match</span></br></div>
 				</div>
 				<div id='panel2'>
-					<div><span class='label'>First Name:</span><input class='register' type='text' name='fname' id='fname'/><span id='FNameMsg' class='errMsg'>*Invalid First Name</span></br></div>
-					<div><span class='label'>Last Name:</span><input class='register' type='text' name='lname' id='lname'/><span id='LNameMsg' class='errMsg'>*Invalid Last Name</span></br></div>
+					<div><span class='label'>First Name:</span><input class='register' type='text' name='fname' id='fname' value="<?php echo $fname ?>"/><span id='FNameMsg' class='errMsg'>*Invalid First Name</span></br></div>
+					<div><span class='label'>Last Name:</span><input class='register' type='text' name='lname' id='lname' value="<?php echo $lname ?>"/><span id='LNameMsg' class='errMsg'>*Invalid Last Name</span></br></div>
 				</div>
 				<div id='panel3'>
-					<div><span class='label'>Email:</span><input class='register' type='email' name='email' id='email'/><span id='EmailMsg' class='errMsg'>*Invalid Email</span></br></div>
-					<div><span class='label'>Phone:</span><input class='register' type='tel' name='phone' id='phone'/><span id='PhoneMsg' class='errMsg'>*Invalid Phone Number</span></br></div>
+					<div><span class='label'>Email:</span><input class='register' type='email' name='email' id='email' value="<?php echo $email ?>"/><span id='EmailMsg' class='errMsg'>*Invalid Email</span></br></div>
+					<div><span class='label'>Phone:</span><input class='register' type='tel' name='phone' id='phone' value="<?php echo $phone ?>"/><span id='PhoneMsg' class='errMsg'>*Invalid Phone Number</span></br></div>
 				</div>
 			</div>
 			<button type='button' id='cancel' class='register' value='cancel'>Cancel</button>
@@ -62,14 +77,23 @@
 			$lname = test_input($_POST["lname"]);
 			$email = test_input($_POST["email"]);
 			$phone = test_input($_POST["phone"]);
+			$okaytoprocess = true;
 			$userid = NULL;
 			if($username!=''){
 				require_once('php/mysqli_connect.php');
 				$query = mysqli_query($dbc, "SELECT username FROM users WHERE username='".$username."'");
 				$res=mysqli_fetch_row($query);
+				$query2 = mysqli_query($dbc, "SELECT email FROM users WHERE email='".$email."'");
+				$res2=mysqli_fetch_row($query2);
 				if ($res){
 					echo "<script type='text/javascript'>showUserNameTakenErrMsg();</script>";
-				}else{
+					$okaytoprocess = false;
+				}
+				if ($res2){
+					echo "<script type='text/javascript'>alert('It seems you already have an account with this email. Use a different email or log in to the account associated with this email. If you forgot your username or password, click the link to get your username or reset your password on the log in page.');</script>";
+					$okaytoprocess = false;
+				}
+				if($okaytoprocess){
 					$data_missing = array();
 					if(empty($username)){
 						$data_missing[] = 'Username';

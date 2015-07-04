@@ -8,7 +8,7 @@ ul{
 	padding: 0px;
 }
 #topnav{
-	position: absolute;
+	position: fixed;
 	top:0px;
 	left:0px;
 	background-color: #b8b8b8;
@@ -19,8 +19,11 @@ ul{
 	position: relative;
 	z-index: 99;
 }
+.topnav_txt{
+	margin-left:15px;
+}
 #topnav img{
-	margin-right:15px;
+	padding-left: 15px;
 }
 #topnav ul{
 	position: relative;
@@ -28,7 +31,6 @@ ul{
 #topnav ul li{
 	display: inline-block;
 	background-color: #b8b8b8;
-	border-right:1px solid black;
 	margin-right: -4px;
 }
 #topnav ul li a{
@@ -46,11 +48,8 @@ ul{
 .top_txt{
 	line-height: 60px;
 }
-#topnav ul li:hover{
+#topnav ul li:active{
 	background-color: #a1a1a1;
-}
-#topnav ul li:hover ul{
-	display: block;
 }
 #topnav ul ul{
 	display: none;
@@ -74,7 +73,7 @@ ul{
 }
 #hideaway{
 	background-color: #b8b8b8;
-	position: absolute;
+	position: fixed;
 	top: 60px;
 	border-right:1px solid black;
 	z-index: 99;
@@ -82,8 +81,8 @@ ul{
 }
 #hideaway ul li a{
 	display: block;
-	padding: 15px;
 	margin: -1px;
+	padding: .5em;
 	text-decoration: none;
 	color: white;
 	font-size: 20px;
@@ -100,14 +99,14 @@ ul{
 #hideaway ul li a{
 	text-align:right;
 }
-main{
-	width: 100%;
-	margin: 30px auto 10px auto;
-	height: auto;
-}
-#user img{
-	width: 55px;
+#userimg{
+	height: 2em;
+	width: 2em;
 	float: right;
+	border-radius: 1em;
+	position: relative;
+	top: -.5em;
+	background-color: white;
 }
 #logout{
 	float: right;

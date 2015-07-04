@@ -20,40 +20,14 @@ h1{
 #formwrapper, #bottomnav{
 	height: 18em;
 }
-.ui-btn{
-	width: 50%;
-	float: right;
-	margin: 0 0 1em 0;
-}
 #cancel{
 	margin-top: 1em;
 	width: 100%;
 	display: block;
+	padding: .5em;
+	border-radius: .5em;
+	font-size: 1em;
 }
-.ui-input-text input{
-	font-size: 1.5em;
-	padding: .3;
-}
-.ui-input-text{
-	margin: 0;
-}
-.jssora05l, .jssora05r {
-	display: block;
-	position: relative;
-	/* size of arrow element */
-	width: 40px;
-	height: 40px;
-	cursor: pointer;
-	background: url(../imgs/carousel/a03.png) no-repeat;
-	overflow: hidden;
-	margin-bottom: 1em;
-}
-.jssora05l { background-position: -10px -40px; }
-.jssora05r { background-position: -70px -40px; }
-.jssora05l:hover { background-position: -130px -40px; }
-.jssora05r:hover { background-position: -190px -40px; }
-.jssora05l.jssora05ldn { background-position: -250px -40px; }
-.jssora05r.jssora05rdn { background-position: -310px -40px; }
 header div h1{
 	font-weight: bold;
 	text-align: center;
@@ -70,6 +44,7 @@ header div h1{
 #registerbtn{
 	width: 50%;
 	float: right;
+	margin: 0;
 }
 #progressbar{
 	width: 95%;
@@ -115,3 +90,27 @@ header div h1{
 	position: relative;
 	display: none;	
 }
+input{
+	width: 100%;
+	padding: .5em;
+	border-radius: .5em;
+	font-size: 1em;
+	margin: 1em 0;
+}
+.jssora05l, .jssora05r {
+	display: block;
+	position: relative;
+	/* size of arrow element */
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	background: url(../imgs/carousel/a03.png) no-repeat;
+	overflow: hidden;
+	margin-bottom: 1em;
+}
+.jssora05l { background-position: -10px -40px; }
+.jssora05r { background-position: -70px -40px; }
+.jssora05l:hover { background-position: -130px -40px; }
+.jssora05r:hover { background-position: -190px -40px; }
+.jssora05l.jssora05ldn { background-position: -250px -40px; }
+.jssora05r.jssora05rdn { background-position: -310px -40px; }
