@@ -1,19 +1,75 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>SD1340 - Upload User Image</title>
+	<title>SD1340 - Home</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="../imgs/icons/favicon.png" type="image/png">
-	<link rel="stylesheet" href="../css/index.css" type="text/css">
+	<link rel="stylesheet" href="../css/nav.css" type="text/css">
+	<link rel="stylesheet" href="../css/slider.css" type="text/css">
+	<link rel="stylesheet" href="../css/home.css" type="text/css">
 	<script type="text/javascript" src='../js/jquery.js'></script>
+	<script type="text/javascript" src='../js/nav.js'></script>
 	<script type="text/javascript" src="../js/home.js"></script>
-	<script type="text/javascript" src="../js/index.js"></script>
-	
+	<style>
+	input{
+		margin: 15px;
+	}
+	</style>
 </head>
 <body>
-	<section id='logo'>
-		<a href="../index.php"><img src='../imgs/logo.png'/></a>
+	<?php
+		session_start();
+		$username = $_SESSION['username'];
+		$filepath = '../imgs/userimages/';
+		$image = $_SESSION['userimage'];
+		if (empty($image)){
+			$image='default.png';
+		}
+		$userimage = $filepath . $image;
+		if(empty($username)){
+			echo "<script>location.href='../index.php';</script>";
+		}
+	?>
+	<nav id='topnav'>
+		<ul>
+			<li id='btn1'><a href='#' id='menu_div'><img id='menubtn' class='icon' src='../imgs/buttons/menu.png'/></a></li>
+			<li id='btn2' class='topnav_li'><a href='../home.php' class='topnav'><img class='icon' src='../imgs/icons/home.png'/><span class='topnav_txt'>Home</span></a></li>
+			<li id='btn3' class='topnav_li'><a href='#' class='topnav'><img class='icon' src='../imgs/icons/assignments.png'/><span class='topnav_txt'>Assignments</span></a>
+				<ul id="assignments_list">
+					<li><a href='#'>Assignment 1</a></li>
+					<li><a href='#'>Assignment 2</a></li>
+					<li><a href='#'>Assignment 3</a></li>
+					<li><a href='#'>Assignment 4</a></li>
+					<li><a href='#'>Assignment 5</a></li>
+				</ul>
+			</li>
+			<li id='btn4' class='topnav_li'><a href='#' class='topnav'><img class='icon' src='../imgs/icons/labs.png'/><span class='topnav_txt'>Labs</span></a>
+				<ul id="labs_list">
+					<li><a href='#'>Lab 1</a></li>
+					<li><a href='#'>Lab 2</a></li>
+					<li><a href='#'>Lab 3</a></li>
+					<li><a href='#'>Lab 4</a></li>
+					<li><a href='#'>Lab 5</a></li>
+				</ul>
+			</li>
+			<div id='user'><a id='logout' href='php/logout.php'>log out</a><a href='#' id='profile'><img src='<?php echo $userimage; ?>' href='#'/><span id='username_nav'><?php echo $username; ?></span></a></div>
+		</ul>
+	</nav>
+	<nav id='hideaway'>
+		<ul>
+			<li><a href='#' class='hideaway'>Dashboard<img class='icon' src='../imgs/icons/dashboard.png'/></a></li>
+			<li><a href='#' class='hideaway'>Schedule<img class='icon' src='../imgs/icons/schedule.png'/></a></li>
+			<li><a href='#' class='hideaway'>Turn In<img class='icon' src='../imgs/icons/turnin.png'/></a></li>
+			<li><a href='#' class='hideaway'>Downloads<img class='icon' src='../imgs/icons/download.png'/></a></li>
+			<li><a href='#' class='hideaway'>Forum<img class='icon' src='../imgs/icons/forum.png'/></a></li>
+			<li><a href='#' class='hideaway'>Presentations/Projects<img class='icon' src='../imgs/icons/presentation.png'/></a></li>
+			<li><a href='#' class='hideaway'>User Options<img class='icon' src='../imgs/icons/useroptions.png'/></a></li>
+		</ul>
+	</nav>
+	<section id="logodiv">
+		<img src='../imgs/logo.png' id="logo"/>
 	</section>
 	<main>
 		<header>
@@ -23,15 +79,11 @@
 		</header>
 		<div id="errMsg" style="color: red; display: none;">*Sorry, only JPG, JPEG, PNG & GIF files are allowed</div>
 		<form id='imageupload' method='post' enctype="multipart/form-data">
-			<input type="file" name="image" id="image" accept='image/*'/></br>
-			<input type="submit" name="submit" value="Submit"/>
+			<center><input type="file" name="image" id="image" accept='image/*'/></br>
+			<input type="submit" name="submit" value="Submit"/></center>
 		</form>
 		<?php
-			session_start();
 			$username = $_SESSION['username'];
-			if(empty($username)){
-				echo "<script>location.href='../index.php';</script>";
-			}
 		
 			$target_dir = "../imgs/userimages/";
 			$db_dir = "imgs/userimages/";
