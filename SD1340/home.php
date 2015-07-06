@@ -52,7 +52,7 @@
 					<li><a href='#'>Lab 5</a></li>
 				</ul>
 			</li>
-			<div id='user'><a id='logout' href='php/logout.php'>log out</a><a href='#' id='profile'><img src='<?php echo $userimage; ?>' href='#'/><span id='username_nav'><?php echo $username; ?></span></a></div>
+			<div id='user'><a id='logout' href='php/logout.php'>log out</a><a href='useroptions/profile.php' id='profile'><img src='<?php echo $userimage; ?>'/><span id='username_nav'><?php echo $username; ?></span></a></div>
 		</ul>
 	</nav>
 	<nav id='hideaway'>

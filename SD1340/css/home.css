@@ -8,12 +8,6 @@ main{
 	min-width: 800px;
 	border-radius: 2em;
 }
-.ui-page { 
-	background-color: #0769ad;
-}
-.ui-overlay-a{
-	color: white;
-}
 #logo{
 	margin-top: 100px;
 	width: 30%;

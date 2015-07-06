@@ -50,8 +50,13 @@
 					$query=mysqli_query($dbc, "SELECT * FROM users WHERE username='".$username."' AND password='".$password."'") or die(mysql_error());
 					$res=mysqli_fetch_row($query);
 					if($res){
-						$_SESSION['username']=$res[1];
-						$_SESSION['userimage']=$res[7];
+						$_SESSION['username']	=$res[1];
+						$_SESSION['password']	=$res[2];
+						$_SESSION['firstname']	=$res[3];
+						$_SESSION['lastname']	=$res[4];
+						$_SESSION['email']		=$res[5];
+						$_SESSION['phone']		=$res[6];
+						$_SESSION['userimage']	=$res[7];
 						header('location:home.php');
 					}else{
 						echo "<script type='text/javascript'>$('#errMsg').show();</script>";
