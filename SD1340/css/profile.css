@@ -17,6 +17,11 @@ main{
 	display: none;
 	margin-left: 15px;
 }
+#firstrow{
+	width: 80%;
+	display: block;
+	padding: 0 10%;
+}
 main div span{
 	width: 100%;
 	display: block;
@@ -38,4 +43,34 @@ fieldset{
 	width: 80%;
 	min-width: 800px;
 	margin: 0 auto;
+}
+footer{
+	width: 100%;
+}
+#footer_div{
+	width: 80%;
+	min-width: 800px;
+	margin: 10px auto 50px auto;
+}
+.inner_footer{
+	width: 30%;
+	list-style: none;
+	display: inline-block;
+}
+.inner_footer li{
+	padding-top: 10px;
+}
+.inner_footer li a{
+	color: white;
+	text-decoration: none;
+	padding-left: 40%;
+}
+.inner_footer li a:hover{
+	text-decoration: underline;
+}
+#left_footer, #center_footer{
+	border-right: 2px solid #6699ff;
+}
+#changeuserimage{
+	float: right;
 }

@@ -16,20 +16,28 @@
 	<?php
 		session_start();
 		$username = $_SESSION['username'];
+		$userimage = $_SESSION['userimage'];
 		$filepath = '../imgs/userimages/';
-		$image = $_SESSION['userimage'];
-		if (empty($image)){
-			$image='default.png';
+		if (empty($userimage)){
+			$userimage='default.png';
 		}
-		$userimage = $filepath . $image;
+		$userimage = $filepath . $userimage;
 		if(empty($username)){
 			echo "<script>location.href='index.php';</script>";
 		}
-		$password	= $_SESSION['password'];
-		$firstname 	= $_SESSION['firstname'];
-		$lastname 	= $_SESSION['lastname'];
-		$email 		= $_SESSION['email'];
-		$phone		= $_SESSION['phone'];		
+		
+		require_once('../php/mysqli_connect.php');
+		$query = mysqli_query($dbc, "SELECT * FROM users WHERE username = '".$username."'") 
+			or die(mysql_error("<script>window.location.href='../server_error.html';</script>"));
+		$res = mysqli_fetch_row($query);
+		
+		$username	=$res[1];
+		$firstname	=$res[3];
+		$lastname	=$res[4];
+		$email		=$res[5];
+		$phone		=$res[6];
+		$userimage	= $filepath . $res[7];
+		
 	?>
 	<nav id='topnav'>
 		<ul>
@@ -53,7 +61,7 @@
 					<li><a href='#'>Lab 5</a></li>
 				</ul>
 			</li>
-			<div id='user'><a id='logout' href='php/logout.php'>log out</a><a href='#' id='profile'><img src='<?php echo $userimage; ?>' href='#'/><span id='username_nav'><?php echo $username; ?></span></a></div>
+			<div id='user'><a id='logout' href='../php/logout.php'>log out</a><a href='#' id='profile'><img src='<?php echo $userimage; ?>' href='#'/><span id='username_nav'><?php echo $username; ?></span></a></div>
 		</ul>
 	</nav>
 	<nav id='hideaway'>
@@ -72,14 +80,14 @@
 	</section>
 	<main>
 		<div>
-			<span>Username: <?php echo $username; ?></span>
+			<div id="firstrow">Username: <?php echo $username; ?><button type="button" id="changeuserimage">Change User Image</button></div>
 			<fieldset>
 			<legend>Change Password</legend>
 			<form id="password_form" method="POST" onsubmit="return validatepassword()">
 			<span>Current Password: <input type="password" id="currentpassword" name="currentpassword"/></span>
 			<span>New Password: <input type="password" id="newpassword" name="newpassword"/></span>
 			<span>Re-Type New Password: <input type="password" id="retypenewpassword" name="retypenewpassword"/></span>
-			<span><input type="submit" name="changepassword" id="changepassword" value="Change Password" disabled="disabled"/></span>
+			<span><input type="submit" name="changepassword" id="changepassword" value="Change Password"/></span>
 			</form>
 			</fieldset>
 		</div>
@@ -119,5 +127,32 @@
 </body>
 </html>
 <?php
-	
+	if(isset($_POST['changepassword'])){
+		$currentpassword = $_POST['currentpassword'];
+		$newpassword = $_POST['newpassword'];
+		$retypenewpassword = $_POST['retypenewpassword'];
+		$query2 = mysqli_query($dbc, "SELECT * FROM users WHERE username = '".$username."' AND password = '".$currentpassword."'")
+			or die(mysql_error("<script>window.location.href='../server_error.html';</script>"));
+		$res2 = mysqli_fetch_row($query2);
+		if(!$res2){
+			echo '<script>alert("That is not your current password")</script>';
+			echo $res2;
+		}else{
+			mysqli_query($dbc, "UPDATE users SET password = '".$newpassword."' WHERE username = '".$username."'")
+			or die(mysql_error("<script>window.location.href='../server_error.html';</script>"));
+			
+			echo '<script>alert("Password Updated")</script>';
+		}
+	}
+	if(isset($_POST['updatecontactinfo'])){
+		$firstname = $_POST['firstname'];
+		$lastname = $_POST['lastname'];
+		$phone = $_POST['phone'];
+		$email = $_POST['email'];
+		
+		mysqli_query($dbc, "UPDATE users SET firstname = '".$firstname."', lastname = '".$lastname."', phone = '".$phone."', email = '".$email."' WHERE username = '".$username."'") 
+			or die(mysql_error("<script>window.location.href='../server_error.html';</script>"));
+		
+		echo '<script>alert("Contact Info Updated")</script>';
+	}
 ?>

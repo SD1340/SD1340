@@ -22,6 +22,9 @@ $(document).ready(function(){
 		$('#changecontactinfo').show();
 		$('#cancel').hide();
 	});
+	$('#changeuserimage').click(function(){
+		window.location.href = "uploaduserimage.php";
+	});
 });
 
 function validatepassword(){
@@ -39,6 +42,7 @@ function validatepassword(){
 		PasswordisValid = regexPassword.test(inputPassword);
 		if(!PasswordisValid){
 			alert("New password must be at least 8 characters, contain upper and lower case letters, and have at least 2 numbers");
+			return false;
 		}
 	}
 	if ($('#retypenewpassword').val() == ''){
@@ -46,8 +50,10 @@ function validatepassword(){
 		return false;
 	}
 	if ($('#retypenewpassword').val() != ''){
+		if($('#retypenewpassword').val() != $('#newpassword').val()){
 		alert("New password and re-typed password do not match");
 		return false;
+		}
 	}
 	return true;
 }
@@ -86,4 +92,5 @@ function validatecontactinfo(){
 			return false;
 		}
 	}
+	return true;
 }
