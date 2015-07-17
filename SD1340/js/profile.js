@@ -77,6 +77,7 @@ function validatecontactinfo(){
 		PhoneisValid = regexPhone.test(inputPhone);
 		if (!PhoneisValid){
 			alert("Please enter a valid phone number");
+			return false;
 		}
 	}
 	if ($('#email').val() == ''){
@@ -92,5 +93,90 @@ function validatecontactinfo(){
 			return false;
 		}
 	}
+	
+	updateuserinfo();
 	return true;
+}
+
+/*AJAX CODE STARTS HERE*/
+
+var xmlHttp;
+
+$(document).ready(function(){
+
+	if(window.ActiveXObject){
+		try{
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+		}catch(e){
+			xmlHttp = false;
+		}
+	}else{
+		try{
+			xmlHttp = new XMLHttpRequest();
+		}catch(e){
+			xmlHttp = false;
+		}
+	}
+	
+	if(!xmlHttp){
+		alert("Couldn't Load User Info");
+	}else{
+		console.log("xmlHttp created");
+	}
+	console.log(xmlHttp);
+	console.log("loading user info...");
+	loaduserinfo();
+});
+
+function loaduserinfo(){
+	if(xmlHttp.readyState==0 || xmlHttp.readyState==4){
+		username = $('#username').val();
+		firstname = $('#userfirstname').val();
+		lastname = $('#userlastname').val();
+		phone = $('#userphone').val();
+		email = $('#useremail').val();
+		xmlHttp.open("GET", "updateuserinfo.php?username="+username+"&firstname="+firstname+"&lastname="+lastname+"&phone="+phone+"&email="+email, true);
+		xmlHttp.onreadystatechange = handleServerResponse();
+		xmlHttp.send(null);
+		console.log("user info loaded");
+	}else{
+		console.log("waiting...");
+		setTimeout('loaduserinfo()',1000);
+	}
+}
+
+function updateuserinfo(){
+	if(xmlHttp.readyState==0 || xmlHttp.readyState==4){
+		username = $('#username').val();
+		firstname = $('#firstname').val();
+		lastname = $('#lastname').val();
+		phone = $('#phone').val();
+		email = $('#email').val();
+		xmlHttp.open("GET", "updateuserinfo.php?username="+username+"&firstname="+firstname+"&lastname="+lastname+"&phone="+phone+"&email="+email, true);
+		xmlHttp.onreadystatechange = handleServerResponse();
+		xmlHttp.send(null);
+		console.log("user info updated");
+		alert("Contact Info Updated");
+	}else{
+		console.log("waiting...");
+		setTimeout('updateuserinfo()',1000);
+	}
+}
+
+function handleServerResponse(){
+	console.log("handling server response...");
+	if(xmlHttp.readyState==4){
+		if(xmlHttp.status==200){
+			console.log("xmlHttp.responseXML: "+xmlHttp.responseXML);
+			xmlResponse = xmlHttp.responseXML;
+			xmlDocumentElement = xmlResponse.documentElement;
+			userinfo = xmlDocumentElement.firstChild.data;
+			$('#contactinfodiv').innerHTML(userinfo);
+			console.log("server response handled");
+		}else{
+			console.log("status: "+xmlHttp.status);
+		}
+	}else{
+		console.log("readystate: "+xmlHttp.readyState);
+	}
 }

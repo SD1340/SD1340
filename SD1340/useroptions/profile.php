@@ -11,34 +11,38 @@
 	<script type="text/javascript" src='../js/jquery.js'></script>
 	<script type="text/javascript" src='../js/nav.js'></script>
 	<script type="text/javascript" src="../js/profile.js"></script>
+
 </head>
 <body>
 	<?php
 		session_start();
 		$username = $_SESSION['username'];
-		$userimage = $_SESSION['userimage'];
+		require_once('../php/mysqli_connect.php');
+		$query = mysqli_query($dbc, "SELECT username, firstname, lastname, email, phone, userimage FROM users WHERE username = '".$username."'")
+			or die(mysql_error("<script>window.location.href='../server_error.html';</script>"));
+		$res = mysqli_fetch_row($query);
+		
+		$username 	=$res[0];
+		$firstname	=$res[1];
+		$lastname	=$res[2];
+		$email    	=$res[3];
+		$phone    	=$res[4];
+		$userimage	=$res[5];
+		
 		$filepath = '../imgs/userimages/';
 		if (empty($userimage)){
 			$userimage='default.png';
 		}
 		$userimage = $filepath . $userimage;
 		if(empty($username)){
-			echo "<script>location.href='index.php';</script>";
+			echo "<script>location.href='../index.php';</script>";
 		}
-		
-		require_once('../php/mysqli_connect.php');
-		$query = mysqli_query($dbc, "SELECT * FROM users WHERE username = '".$username."'") 
-			or die(mysql_error("<script>window.location.href='../server_error.html';</script>"));
-		$res = mysqli_fetch_row($query);
-		
-		$username	=$res[1];
-		$firstname	=$res[3];
-		$lastname	=$res[4];
-		$email		=$res[5];
-		$phone		=$res[6];
-		$userimage	= $filepath . $res[7];
-		
 	?>
+	<input type="hidden" value="<?php echo $username;?>" id="username"/>
+	<input type="hidden" value="<?php echo $firstname;?>" id="userfirstname"/>
+	<input type="hidden" value="<?php echo $lastname;?>" id="userlastname"/>
+	<input type="hidden" value="<?php echo $email;?>" id="useremail"/>
+	<input type="hidden" value="<?php echo $phone;?>" id="userphone"/>
 	<nav id='topnav'>
 		<ul>
 			<li id='btn1'><a href='#' id='menu_div'><img id='menubtn' class='icon' src='../imgs/buttons/menu.png'/></a></li>
@@ -94,12 +98,13 @@
 		<div>
 			<fieldset>
 			<legend>Contact Info</legend>
-			<form id="contactinfo_form" method="POST" onsubmit="return validatecontactinfo()">
-			<span>First Name: <div class="label"><?php echo $firstname; ?></div><input type="text" id="firstname" name="firstname" value="<?php echo $firstname; ?>"/></span>
-			<span>Last Name: <div class="label"><?php echo $lastname; ?></div><input type="text" id="lastname" name="lastname" value="<?php echo $lastname; ?>"/></span>
-			<span>Phone: <div class="label"><?php echo $phone; ?></div><input type="text" id="phone" name="phone" value="<?php echo $phone; ?>"/></span>
-			<span>Email: <div class="label"><?php echo $email; ?></div><input type="text" id="email" name="email" value="<?php echo $email; ?>"/></span>
-			<span><button id="changecontactinfo" type="button">Change Contact Info</button><input type="submit" name="updatecontactinfo" id="updatecontactinfo" value="Update Contact Info"/><button id="cancel" type="button">Cancel</button></span>
+			<form id="contactinfo_form">
+				<div id="contactinfodiv" onload="loaduserinfo()"></div>
+				<span>
+					<button id="changecontactinfo" type="button">Change Contact Info</button>
+					<button type="button" name="updatecontactinfo" id="updatecontactinfo" onclick="validatecontactinfo()" >Update Contact Info</button>
+					<button id="cancel" type="button">Cancel</button>
+				</span>
 			</form>
 			</fieldset>
 		</div>
@@ -143,16 +148,5 @@
 			
 			echo '<script>alert("Password Updated")</script>';
 		}
-	}
-	if(isset($_POST['updatecontactinfo'])){
-		$firstname = $_POST['firstname'];
-		$lastname = $_POST['lastname'];
-		$phone = $_POST['phone'];
-		$email = $_POST['email'];
-		
-		mysqli_query($dbc, "UPDATE users SET firstname = '".$firstname."', lastname = '".$lastname."', phone = '".$phone."', email = '".$email."' WHERE username = '".$username."'") 
-			or die(mysql_error("<script>window.location.href='../server_error.html';</script>"));
-		
-		echo '<script>alert("Contact Info Updated")</script>';
 	}
 ?>

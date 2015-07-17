@@ -13,6 +13,9 @@ main{
 #contactinfo_form input{
 	display: none;
 }
+#updatecontactinfo{
+	display: none;
+}
 #cancel{
 	display: none;
 	margin-left: 15px;
