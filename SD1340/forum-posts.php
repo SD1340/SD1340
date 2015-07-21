@@ -24,7 +24,7 @@
 		<li class="timeposted"><?php echo $row["timeposted"];?></li>
 	</ul>
 	<hr />
-	<p class="message"><?php echo $row["message"];?></p>
+	<p class="message"><?php echo $row["message"].stripslashes();?></p>
 </div>
 
 <?php
