@@ -79,7 +79,7 @@
 				<h1>SD1340: Dashboard</h1>
 			</div>
 		</header>
-		<?php if($username == "derrick.l.adkins" || $username == "rmemering"){?>
+		<?php if($username == "derrick.l.adkins" || $username == "rmemerin"){?>
 		<div id="newpostwrapper">
 			<h3>New Post</h3>
 			Type:&nbsp;
