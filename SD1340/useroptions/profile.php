@@ -70,11 +70,11 @@
 	</nav>
 	<nav id='hideaway'>
 		<ul>
-			<li><a href='#' class='hideaway'>Dashboard<img class='icon' src='../imgs/icons/dashboard.png'/></a></li>
+			<li><a href='../dashboard.php' class='hideaway'>Dashboard<img class='icon' src='../imgs/icons/dashboard.png'/></a></li>
 			<li><a href='#' class='hideaway'>Schedule<img class='icon' src='../imgs/icons/schedule.png'/></a></li>
 			<li><a href='#' class='hideaway'>Turn In<img class='icon' src='../imgs/icons/turnin.png'/></a></li>
 			<li><a href='#' class='hideaway'>Downloads<img class='icon' src='../imgs/icons/download.png'/></a></li>
-			<li><a href='#' class='hideaway'>Forum<img class='icon' src='../imgs/icons/forum.png'/></a></li>
+			<li><a href='../forum.php' class='hideaway'>Forum<img class='icon' src='../imgs/icons/forum.png'/></a></li>
 			<li><a href='#' class='hideaway'>Presentations/Projects<img class='icon' src='../imgs/icons/presentation.png'/></a></li>
 			<li><a href='uploaduserimage.php' class='hideaway'>User Options<img class='icon' src='../imgs/icons/useroptions.png'/></a></li>
 		</ul>
@@ -99,7 +99,7 @@
 			<fieldset>
 			<legend>Contact Info</legend>
 			<form id="contactinfo_form">
-				<div id="contactinfodiv" onload="loaduserinfo()"></div>
+				<div id="contactinfodiv"></div>
 				<span>
 					<button id="changecontactinfo" type="button">Change Contact Info</button>
 					<button type="button" name="updatecontactinfo" id="updatecontactinfo" onclick="validatecontactinfo()" >Update Contact Info</button>

@@ -1,0 +1,41 @@
+.postwrapper{
+	background-color: #999999;
+	width: 80%;
+	margin: 15px auto;
+	padding: 5px;
+}
+.postheaderwrapper{
+	list-style: none;
+}
+.postheaderwrapper li{
+	display: inline-block;
+	width: 30%;
+}
+.username{
+	color: white;
+	font-size: 18px;
+}
+.type{
+	color: white;
+	font-size: 14px;
+	margin: 0 auto;
+}
+.timeposted{
+	color: white;
+	font-size: 16px;
+}
+.message{
+	color: white;
+	font-size: 20px;
+}
+
+
+#newpostwrapper{
+	width: 80%;
+	margin: 0 auto;
+}
+textarea{
+	width: 99%;
+	height: 75px;
+	margin: 10px auto 0px auto;
+}

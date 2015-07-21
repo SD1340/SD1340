@@ -4,12 +4,11 @@ $(document).ready(function(){
 	});
 });
 
-function forgot(){
-	id = $(this).attr('id');
-	if (id == 'getusername'){
-		$('#forgotval').val("username");
+function forgot(id){
+	if (id == 'Username'){
+		$('#forgotval').val("Username");
 	}else{
-		$('#forgotval').val("password");
+		$('#forgotval').val("Password");
 	}
 	$('#forgot_form').submit();
 }

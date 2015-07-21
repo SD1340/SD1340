@@ -63,6 +63,7 @@ function menu(){
 	}else{
 		$('.topnav_li').css('z-index', '-1');
 		$('.topnav_li').animate({left: '-=460px'}, 500);
+		$('.topnav_li').delay(400).animate({zIndex: '-1'}, 0);
 		menuIsVisible=true;
 		$('#hideaway').animate(
 			{left: '+=360px'},
