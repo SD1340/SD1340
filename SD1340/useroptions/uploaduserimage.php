@@ -66,11 +66,11 @@
 	</nav>
 	<nav id='hideaway'>
 		<ul>
-			<li><a href='dashboard.php' class='hideaway'>Dashboard<img class='icon' src='../imgs/icons/dashboard.png'/></a></li>
+			<li><a href='../dashboard.php' class='hideaway'>Dashboard<img class='icon' src='../imgs/icons/dashboard.png'/></a></li>
 			<li><a href='#' class='hideaway'>Schedule<img class='icon' src='../imgs/icons/schedule.png'/></a></li>
 			<li><a href='#' class='hideaway'>Turn In<img class='icon' src='../imgs/icons/turnin.png'/></a></li>
 			<li><a href='#' class='hideaway'>Downloads<img class='icon' src='../imgs/icons/download.png'/></a></li>
-			<li><a href='forum.php' class='hideaway'>Forum<img class='icon' src='../imgs/icons/forum.png'/></a></li>
+			<li><a href='../forum.php' class='hideaway'>Forum<img class='icon' src='../imgs/icons/forum.png'/></a></li>
 			<li><a href='#' class='hideaway'>Presentations/Projects<img class='icon' src='../imgs/icons/presentation.png'/></a></li>
 			<li><a href='#' class='hideaway'>User Options<img class='icon' src='../imgs/icons/useroptions.png'/></a></li>
 		</ul>
