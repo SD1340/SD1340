@@ -2,16 +2,7 @@
 <html>
 <head>
 	<title>SD1340 - Home</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="../imgs/icons/favicon.png" type="image/png">
-	<link rel="stylesheet" href="../css/nav.css" type="text/css">
-	<link rel="stylesheet" href="../css/slider.css" type="text/css">
-	<link rel="stylesheet" href="../css/home.css" type="text/css">
-	<script type="text/javascript" src='../js/jquery.js'></script>
-	<script type="text/javascript" src='../js/nav.js'></script>
-	<script type="text/javascript" src="../js/home.js"></script>
+	<?php include 'resources.html';?>
 	<style>
 	input{
 		margin: 15px;
@@ -19,25 +10,7 @@
 	</style>
 </head>
 <body>
-	<?php
-		session_start();
-		$username = $_SESSION['username'];
-		if(empty($username)){
-			echo "<script>location.href='../index.php';</script>";
-		}
-		require_once('../php/mysqli_connect.php');
-		$query = mysqli_query($dbc, "SELECT userimage FROM users WHERE username='".$username."'") 
-			or die(mysql_error("<script>window.location.href='../server_error.html';</script>"));
-			
-		$res = mysqli_fetch_row($query);
-		
-		$image = $res[0];
-		if (empty($image)){
-			$image='default.png';
-		}
-		$filepath = '../imgs/userimages/';
-		$userimage = $filepath . $image;
-	?>
+	<?php include 'php/loaduserinfo.php';?>
 	
 	<nav id='topnav'>
 		<ul>
@@ -45,7 +18,7 @@
 			<li id='btn2' class='topnav_li'><a href='../home.php' class='topnav'><img class='icon' src='../imgs/icons/home.png'/><span class='topnav_txt'>Home</span></a></li>
 			<li id='btn3' class='topnav_li'><a href='#' class='topnav'><img class='icon' src='../imgs/icons/assignments.png'/><span class='topnav_txt'>Assignments</span></a>
 				<ul id="assignments_list">
-					<li><a href='#'>Assignment 1</a></li>
+					<li><a href='../assignments/unit1assignment1.php'>Assignment 1</a></li>
 					<li><a href='#'>Assignment 2</a></li>
 					<li><a href='#'>Assignment 3</a></li>
 					<li><a href='#'>Assignment 4</a></li>

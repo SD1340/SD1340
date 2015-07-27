@@ -121,8 +121,8 @@ $(document).ready(function(){
 			}
 		}else{}
 	});
-	$('#cancel').click(function(){
-		window.location.href='../index.php';
+	$('#register #cancel').click(function(){
+		window.location.href='/index.php';
 	});
 });
 

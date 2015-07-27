@@ -1,24 +1,26 @@
 $(document).ready(function() {
-	load();
+	if($("main").attr("id") == "forum"){
+		forum_load();
+	}
 });
 
-function load(){
+function forum_load(){
 	$action = "load";
-	$username = $('#username').val();
+	$username = $('#forum #username').val();
 	$.ajax({
 		method: "POST",
 		url: "forum-posts.php",
 		data: {action: $action, username: $username}
 	})
 		.done(function( html ){
-			$("#posts").html( html );
+			$("#forum #posts").html( html );
 		});
 }
 
-function post(){
+function forum_post(){
 	$action = "new";
-	$username = $('#username').val();
-	$message = $('#message').val().trim();
+	$username = $('#forum #username').val();
+	$message = $('#forum #message').val().trim();
 	
 	if($message == ''){
 		alert("Message cannot be blank.");
@@ -29,11 +31,10 @@ function post(){
 			data: {action: $action, message: $message, username: $username}
 		})
 		.done(function( html ){
-			$("#posts").html( html );
+			$("#forum #posts").html( html );
 		});
 		
-		$('#message').val("");
-		$('#type').val("Information");
-		$('#message').focus();
+		$('#forum #message').val("");
+		$('#forum #message').focus();
 	}
 }

@@ -1,39 +1,42 @@
 $(document).ready(function() {
-	load();
+	if($("main").attr("id") == "dashboard"){
+		dashboard_load();
+	}
 });
 
-function load(){
+function dashboard_load(){
 	$action = "load";
-	$username = $('#username').val();
+	$username = $('#dashboard #username').val();
 	$.ajax({
 		method: "POST",
-		url: "posts.php",
+		url: "dashboard-posts.php",
 		data: {action: $action, username: $username}
 	})
 		.done(function( html ){
-			$("#posts").html( html );
+			$("#dashboard #posts").html( html );
 		});
 }
 
-function post(){
+function dashboard_post(){
 	$action = "new";
-	$username = $('#username').val();
-	$message = $('#message').val().trim();
-	$type = $('#type').val();
+	$username = $('#dashboard #username').val();
+	$message = $('#dashboard #message').val().trim();
+	$type = $('#dashboard #type').val();
 	
 	if($message == ''){
 		alert("Message cannot be blank.");
 	}else{
 		$.ajax({
 			method: "POST",
-			url: "posts.php",
+			url: "dashboard-posts.php",
 			data: {action: $action, message: $message, type: $type, username: $username}
 		})
 		.done(function( html ){
-			$("#posts").html( html );
+			$("#dashboard #posts").html( html );
 		});
 		
-		$('#message').val("");
-		$('#type').val("Information");
+		$('#dashboard #message').val("");
+		$('#dashboard #type').val("Information");
+		$('#dashboard #message').focus();
 	}
 }

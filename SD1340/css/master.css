@@ -1,31 +1,23 @@
-html{
+html, body{
+	padding: 0px;
+	margin: 0px;
 	background-color: #0769ad;
 }
 main{
 	background-color: #ffffff;
-	padding: 2em 0px;
+	padding: 20px 0px;
 	width: 80%;
 	min-width: 800px;
-	border-radius: 2em;
-}
-#main{
-	background-color: #ffffff;
-	padding: 2em 0px;
-	width: 80%;
-	min-width: 800px;
-	border-radius: 2em;
-	margin: 0 auto;
+	margin: 30px auto 0px auto;
+	height: auto;
+	border-radius: 15px;
 }
 #logo{
-	margin-top: 100px;
-	width: 30%;
-	min-width: 250px;
-	max-width: 400px;
+	margin-top: 25px;
+	margin-left: 10%;
 }
-#logodiv{
-	width: 80%;
-	min-width: 800px;
-	margin: 0 auto;
+#logo img{
+	width: 300px;
 }
 header{
 	width: 100%;
@@ -38,8 +30,9 @@ header div h1{
 	font-weight: bold;
 	text-align: center;
 }
-#section div{
-	padding: 25px;
+#errMsg{
+	color: red;
+	display: none;
 }
 footer{
 	width: 100%;
