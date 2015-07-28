@@ -1,5 +1,7 @@
 <?php
 
+header('Content-type: application/json');
+
 // Query that retrieves events
 $requete = "SELECT * FROM `evenement` ORDER BY `id`";
 
@@ -24,10 +26,9 @@ while ($row = mysqli_fetch_assoc($resultat)) {
 	$events[] = $eventsArray;
 }
 
-$json =  json_encode($events);
 
-echo $json;
 
-// echo '[{"id":"1","title":"title","start":"1437937369","end":"1437937369","url":"","allDay":"1"}]';
+echo json_encode($events);
 
 ?>
+
