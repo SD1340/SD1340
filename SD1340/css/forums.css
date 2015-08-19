@@ -1,39 +1,45 @@
-#forum .postwrapper{
+.forumwrapper{
 	background-color: #999999;
 	width: 80%;
 	margin: 15px auto;
 	padding: 5px;
 }
-#forum .postheaderwrapper{
+.forumheaderwrapper{
 	list-style: none;
 }
-#forum .postheaderwrapper li{
+.forumheaderwrapper li{
 	display: inline-block;
 	width: 30%;
 }
-#forum .username{
+#forums .username{
 	color: white;
 	font-size: 18px;
 }
-#forum .type{
+#forums .type{
 	color: white;
 	font-size: 14px;
 	margin: 0 auto;
 }
-#forum .timeposted{
+#forums .timeposted{
 	color: white;
 	font-size: 16px;
 }
-#forum .message{
+#forums .message{
 	color: white;
 	font-size: 20px;
 }
-#newpostwrapper{
+#newforumwrapper{
 	width: 80%;
 	margin: 0 auto;
 }
-#forum textarea{
+#forums input{
 	width: 99%;
-	height: 75px;
 	margin: 0 auto;
+}
+#forums a{
+	text-decoration: none;
+	color: white;
+}
+#forums #forum .forumwrapper:hover{
+	background-color: #a1a1a1;
 }

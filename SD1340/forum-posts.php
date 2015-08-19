@@ -1,7 +1,9 @@
 <?php
 	$username 	= $_POST['username'];
-	if(empty($username)){
-		echo "<script>location.href='index.php';</script>";
+	$forumid	= $_POST['forumid'];
+	
+	if(empty($username) or empty($forumid)){
+		//echo "<script>location.href='index.php';</script>";
 	}
 	
 	$action 	= $_POST['action'];
@@ -9,12 +11,12 @@
 	require_once('php/mysqli_connect.php');
 	if($action == 'new'){
 		$message	= $_POST['message'];
-		$stmt = $dbc->prepare("INSERT INTO `forum`(`user`, `message`) VALUES ('".$username."', ?)");
+		$stmt = $dbc->prepare("INSERT INTO `forum`(`user`, `message`, `forumid`) VALUES ('".$username."', ? , '".$forumid."')");
 		$stmt->bind_param('s', $message);
 		$stmt->execute();
 	}
-	$query = mysqli_query($dbc, "SELECT `postid`, `timeposted`, `user`, `message` FROM `forum` order by `timeposted` DESC");
-	
+	$query = mysqli_query($dbc, "SELECT `postid`, `forumid`, `timeposted`, `user`, `message` FROM `forum` WHERE `forumid` = ".$forumid." order by `timeposted`");
+
 	while ($row = mysqli_fetch_array($query)) {
 ?>
 

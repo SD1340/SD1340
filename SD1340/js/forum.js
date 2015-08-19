@@ -7,10 +7,11 @@ $(document).ready(function() {
 function forum_load(){
 	$action = "load";
 	$username = $('#forum #username').val();
+	$forumid = $('#forum #forumid').val();
 	$.ajax({
 		method: "POST",
 		url: "forum-posts.php",
-		data: {action: $action, username: $username}
+		data: {action: $action, username: $username, forumid: $forumid}
 	})
 		.done(function( html ){
 			$("#forum #posts").html( html );
@@ -20,6 +21,7 @@ function forum_load(){
 function forum_post(){
 	$action = "new";
 	$username = $('#forum #username').val();
+	$forumid = $('#forum #forumid').val();
 	$message = $('#forum #message').val().trim();
 	
 	if($message == ''){
@@ -28,7 +30,7 @@ function forum_post(){
 		$.ajax({
 			method: "POST",
 			url: "forum-posts.php",
-			data: {action: $action, message: $message, username: $username}
+			data: {action: $action, message: $message, username: $username, forumid: $forumid}
 		})
 		.done(function( html ){
 			$("#forum #posts").html( html );
