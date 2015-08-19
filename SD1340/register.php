@@ -1,14 +1,7 @@
 <html>
 <head>
 	<title>SD1340 - Register</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="icon" href="imgs/icons/favicon.png" type="image/png">
-	<link rel="stylesheet" href="css/register.css" type="text/css">
-	<script type="text/javascript" src='js/jquery.js'></script>
-	<script type="text/javascript" src="js/home.js"></script>
-	<script type="text/javascript" src="js/register.js"></script>
+	<?php include 'resources.html';?>
 	<?php
 		if(isset($_POST['registerbtn'])){
 			$username = test_input($_POST["username"]);
@@ -31,7 +24,7 @@
 	<section id='logo'>
 		<img src='imgs/logo.png'/>
 	</section>
-	<main>
+	<main id="register">
 		<header>
 			<div>
 				<h1>SD1340: Mr. Memering</h1>

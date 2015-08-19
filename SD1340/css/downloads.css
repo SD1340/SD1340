@@ -1,0 +1,23 @@
+#downloads ul{
+	list-style: none;
+	text-align: center;
+}
+#downloads ul li{
+	display: inline-block;
+	width: 130px;
+	text-align: center;
+	margin: 10px;
+}
+#downloads ul li span{
+	background-color: white;
+	color: black;
+	position: relative;
+	top: -20px;
+}
+#downloads ul li a{
+	text-decoration: none;
+}
+#downloads ul li a:hover span{
+	background-color: #0769ad;
+	color: white;
+}

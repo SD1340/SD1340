@@ -34,6 +34,7 @@ $(document).ready(function(){
 	$(window).resize(function(){
 		dynamic_nav();
 	});
+	
 });
 
 function dynamic_nav(){

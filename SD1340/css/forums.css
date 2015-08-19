@@ -1,0 +1,45 @@
+.forumwrapper{
+	background-color: #999999;
+	width: 80%;
+	margin: 15px auto;
+	padding: 5px;
+}
+.forumheaderwrapper{
+	list-style: none;
+}
+.forumheaderwrapper li{
+	display: inline-block;
+	width: 30%;
+}
+#forums .username{
+	color: white;
+	font-size: 18px;
+}
+#forums .type{
+	color: white;
+	font-size: 14px;
+	margin: 0 auto;
+}
+#forums .timeposted{
+	color: white;
+	font-size: 16px;
+}
+#forums .message{
+	color: white;
+	font-size: 20px;
+}
+#newforumwrapper{
+	width: 80%;
+	margin: 0 auto;
+}
+#forums input{
+	width: 99%;
+	margin: 0 auto;
+}
+#forums a{
+	text-decoration: none;
+	color: white;
+}
+#forums #forum .forumwrapper:hover{
+	background-color: #a1a1a1;
+}

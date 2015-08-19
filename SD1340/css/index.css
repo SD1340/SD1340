@@ -1,50 +1,18 @@
-html, body{
-	padding: 0px;
-	margin: 0px;
-	background-color: #0769ad;
-}
-main{
-	background-color: #ffffff;
-	padding: 20px 0px;
-	width: 80%;
-	min-width: 800px;
-	margin: 30px auto 0px auto;
-	height: auto;
-	border-radius: 15px;
-}
-#forgot_form{
+#forgot_form_index{
 	display: none;
 }
-#logo{
-	margin-top: 25px;
-	margin-left: 10%;
-}
-#logo img{
-	width: 300px;
-}
-header{
-	width: 100%;
-}
-header div{
-	width: 80%;
-	margin: 0 auto;
-}
-header div h1{
-	font-weight: bold;
-	text-align: center;
-}
-form{
+#login_index{
 	text-align: center;
 	height: 200px;
 }
-input{
+#login_index input{
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
-#registerbtn{
+#registerbtn_index{
 	margin-left: 20px;
 }
-.label{
+.label_index{
 	text-align: right;
 	width: 45%;
 	padding-right: 2%;
@@ -53,17 +21,13 @@ input{
 	position: relative;
 	top: 1.3em;
 }
-#login .login{
+#login_index .login_index{
 	text-align: left;
 	display: block;
 	float: left;
 }
-#buttonwrapper{
+#buttonwrapper_index{
 	display: block;
 	width: 100%;
 	float: left;
-}
-#errMsg{
-	color: red;
-	display: none;
 }

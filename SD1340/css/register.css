@@ -1,44 +1,12 @@
-html, body{
-	padding: 0px;
-	margin: 0px;
-	background-color: #0769ad;
-}
-main{
-	background-color: #ffffff;
-	padding: 20px 0px;
-	width: 80%;
-	min-width: 800px;
-	margin: 30px auto 0px auto;
-	height: 100%;
-	border-radius: 15px;
-}
-#logo{
-	margin-top: 25px;
-	margin-left: 10%;
-}
-#logo img{
-	width: 300px;
-}
-header{
-	width: 100%;
-}
-header div{
-	width: 80%;
-	margin: 0 auto;
-}
-header div h1{
-	font-weight: bold;
-	text-align: center;
-}
-form{
+#register form{
 	text-align: center;
 	padding-top: 25px;
 }
-input{
+#register input{
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
-#formwrapper{
+#register #formwrapper{
 	height: 250px;
 	display: block;
 }
@@ -95,7 +63,7 @@ input{
 #panel3{
 	display: none;
 }
-.label{
+#register .label{
 	text-align: right;
 	width: 45%;
 	padding-right: 2%;
@@ -104,7 +72,7 @@ input{
 	position: relative;
 	top: 1.3em;
 }
-#formwrapper .register{
+#register #formwrapper .register{
 	text-align: left;
 	display: block;
 	float: left;
@@ -127,6 +95,6 @@ input{
 	top: 3.3em;
 	display: none;
 }
-#cancel{
+#register #cancel{
 	text-align: center;
 }

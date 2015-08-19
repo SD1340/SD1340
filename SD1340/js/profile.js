@@ -1,26 +1,26 @@
 $(document).ready(function(){
 	$('#changecontactinfo').click(function(){
 		$('#changecontactinfo').hide();
-		$('.label').hide();
+		$('.text').hide();
 		$('#updatecontactinfo').show();
 		$('#contactinfo_form input').show();
-		$('#cancel').show();
+		$('#profile #cancel').show();
 	});
 	$('#updatecontactinfo').click(function(){
 		validPassword = validatecontactinfo();
 		if(validPassword){
 			$('#updatecontactinfo').hide();
 			$('#contactinfo_form input').hide();
-			$('.label').show();
+			$('.text').show();
 			$('#changecontactinfo').show();
 		}
 	});
 	$('#cancel').click(function (){
 		$('#updatecontactinfo').hide();
 		$('#contactinfo_form input').hide();
-		$('.label').show();
+		$('.text').show();
 		$('#changecontactinfo').show();
-		$('#cancel').hide();
+		$('#profile #cancel').hide();
 	});
 	$('#changeuserimage').click(function(){
 		window.location.href = "uploaduserimage.php";
@@ -111,12 +111,6 @@ function getContactInfo(){
 	$phone = $('#userphone').val();
 	$email = $('#useremail').val();
 	
-	console.log($username);
-	console.log($firstname);
-	console.log($lastname);
-	console.log($phone);
-	console.log($email);
-	
 	$.ajax({
 		method: "POST",
 		url: "updateuserinfo.php",
@@ -133,12 +127,6 @@ function updateContactInfo(){
 	$lastname = $('#lastname').val();
 	$phone = $('#phone').val();
 	$email = $('#email').val();
-	
-	console.log($username);
-	console.log($firstname);
-	console.log($lastname);
-	console.log($phone);
-	console.log($email);
 	
 	$.ajax({
 		method: "POST",

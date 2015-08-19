@@ -1,40 +1,38 @@
-.postwrapper{
+#forum .postwrapper{
 	background-color: #999999;
 	width: 80%;
 	margin: 15px auto;
 	padding: 5px;
 }
-.postheaderwrapper{
+#forum .postheaderwrapper{
 	list-style: none;
 }
-.postheaderwrapper li{
+#forum .postheaderwrapper li{
 	display: inline-block;
 	width: 30%;
 }
-.username{
+#forum .username{
 	color: white;
 	font-size: 18px;
 }
-.type{
+#forum .type{
 	color: white;
 	font-size: 14px;
 	margin: 0 auto;
 }
-.timeposted{
+#forum .timeposted{
 	color: white;
 	font-size: 16px;
 }
-.message{
+#forum .message{
 	color: white;
 	font-size: 20px;
 }
-
-
 #newpostwrapper{
 	width: 80%;
 	margin: 0 auto;
 }
-textarea{
+#forum textarea{
 	width: 99%;
 	height: 75px;
 	margin: 0 auto;

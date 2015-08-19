@@ -1,22 +1,10 @@
-html{
-	margin:0;
-	padding: 0;
-	background-color: #0769ad;
-}
-main{
-	background-color: #ffffff;
-	padding: 2em 0px;
-	width: 80%;
-	min-width: 800px;
-	border-radius: 2em;
-}
 #contactinfo_form input{
 	display: none;
 }
 #updatecontactinfo{
 	display: none;
 }
-#cancel{
+#profile #cancel{
 	display: none;
 	margin-left: 15px;
 }
@@ -25,12 +13,12 @@ main{
 	display: block;
 	padding: 0 10%;
 }
-main div span{
+#profile div span{
 	width: 100%;
 	display: block;
 	padding: 1em;
 }
-.label{
+.text{
 	display: inline-block;
 }
 fieldset{
@@ -46,33 +34,6 @@ fieldset{
 	width: 80%;
 	min-width: 800px;
 	margin: 0 auto;
-}
-footer{
-	width: 100%;
-}
-#footer_div{
-	width: 80%;
-	min-width: 800px;
-	margin: 10px auto 50px auto;
-}
-.inner_footer{
-	width: 30%;
-	list-style: none;
-	display: inline-block;
-}
-.inner_footer li{
-	padding-top: 10px;
-}
-.inner_footer li a{
-	color: white;
-	text-decoration: none;
-	padding-left: 40%;
-}
-.inner_footer li a:hover{
-	text-decoration: underline;
-}
-#left_footer, #center_footer{
-	border-right: 2px solid #6699ff;
 }
 #changeuserimage{
 	float: right;
