@@ -15,6 +15,19 @@
 	color: white;
 	font-size: 18px;
 }
+#forum .postuserimage{
+	height: 55px;
+	width: 55px;
+}
+#forum .postuserimage img{
+	height: 4em;
+	width: 4em;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	overflow: hidden;
+	border: none;
+}
 #forum .type{
 	color: white;
 	font-size: 14px;
@@ -24,16 +37,10 @@
 	color: white;
 	font-size: 16px;
 }
-#forum .message{
-	color: white;
-	font-size: 20px;
-}
 #newpostwrapper{
 	width: 80%;
 	margin: 0 auto;
 }
-#forum textarea{
-	width: 99%;
-	height: 75px;
-	margin: 0 auto;
+#submitnewpost{
+	margin: 1em;
 }

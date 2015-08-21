@@ -15,7 +15,13 @@
 		$stmt->bind_param('s', $message);
 		$stmt->execute();
 	}
-	$query = mysqli_query($dbc, "SELECT `postid`, `forumid`, `timeposted`, `user`, `message` FROM `forum` WHERE `forumid` = ".$forumid." order by `timeposted`");
+	$query = mysqli_query($dbc, "SELECT *\n"
+    . "FROM `forum`\n"
+    . "INNER JOIN\n"
+    . "`users` ON (\n"
+    . "`forum`.`user` = `users`.`username`)\n"
+    . "WHERE `forum`.`forumid` = ".$forumid."\n"
+    . "ORDER BY `forum`.`timeposted`");
 
 	while ($row = mysqli_fetch_array($query)) {
 ?>
@@ -26,7 +32,16 @@
 		<li class="timeposted"><?php echo $row["timeposted"];?></li>
 	</ul>
 	<hr />
-	<p class="message"><?php echo stripslashes($row["message"]);?></p>
+	<table>
+		<tr>
+			<td class="postuserimage" valign="top">
+				<img style="background-image: url('imgs/userimages/<?php echo $row['userimage']; ?>');" />
+			</td>
+			<td class="postmessage">
+				<div class="message"><?php echo stripslashes($row["message"]);?></div>
+			</td>
+		</tr>
+	</table>
 </div>
 
 <?php

@@ -23,7 +23,12 @@ $(document).ready(function(){
 		$('#profile #cancel').hide();
 	});
 	$('#changeuserimage').click(function(){
-		window.location.href = "uploaduserimage.php";
+		$('#uploaduserimage').show();
+		$('#dim-background').show();
+	});
+	$('#uploaduserimage #x').click(function(){
+		$('#uploaduserimage').hide();
+		$('#dim-background').hide();
 	});
 });
 

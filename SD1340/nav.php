@@ -31,6 +31,6 @@
 		<li><a href='/downloads.php' class='hideaway'>Downloads<img class='icon' src='/imgs/icons/download.png'/></a></li>
 		<li><a href='/forums.php' class='hideaway'>Forum<img class='icon' src='/imgs/icons/forum.png'/></a></li>
 		<li><a href='/presentations&projects.php' class='hideaway'>Presentations/Projects<img class='icon' src='/imgs/icons/presentation.png'/></a></li>
-		<li><a href='/uploaduserimage.php' class='hideaway'>User Options<img class='icon' src='/imgs/icons/useroptions.png'/></a></li>
+		<li><a href='/profile.php' class='hideaway'>User Profile<img class='icon' src='/imgs/icons/useroptions.png'/></a></li>
 	</ul>
 </nav>

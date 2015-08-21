@@ -22,7 +22,7 @@ function forum_post(){
 	$action = "new";
 	$username = $('#forum #username').val();
 	$forumid = $('#forum #forumid').val();
-	$message = $('#forum #message').val().trim();
+	$message = CKEDITOR.instances.message.getData();
 	
 	if($message == ''){
 		alert("Message cannot be blank.");
@@ -36,7 +36,7 @@ function forum_post(){
 			$("#forum #posts").html( html );
 		});
 		
-		$('#forum #message').val("");
+		CKEDITOR.instances.message.setData("");
 		$('#forum #message').focus();
 	}
 }

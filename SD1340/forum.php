@@ -3,6 +3,7 @@
 <head>
 	<title>SD1340 - Forum</title>
 	<?php include 'resources.html';?>
+	<script src="//cdn.ckeditor.com/4.5.3/standard/ckeditor.js"></script>
 </head>
 <body>
 	<?php include 'php/loaduserinfo.php';?>
@@ -26,9 +27,13 @@
 			</div>
 		</header>
 		<div id="posts"></div>
+		<hr style="width: 90%;"/>
 		<div id="newpostwrapper">
 			<h3>Comment</h3>
-			<textarea id="message" placeholder="Message" maxlength="3000"></textarea>
+			<textarea id="message" name="message" placeholder="Message" maxlength="3000"></textarea>
+			<script type="text/javascript">
+				CKEDITOR.replace('message');
+			</script>
 			<button type="button" id="submitnewpost" onclick="forum_post()">Submit</button>
 		</div>
 		<input type="hidden" value="<?php echo $username;?>" id="username">

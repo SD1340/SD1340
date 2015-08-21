@@ -1,35 +1,28 @@
-<!DOCTYPE html>
 <html>
 <head>
-	<title>SD1340 - Upload User Image</title>
-	<?php include 'resources.html';?>
-	<style>
-	input{
-		margin: 15px;
-	}
-	</style>
+<style>
+form{
+	position: absolute;
+	width: 50%;
+	height: 50%;
+	top: 25%;
+	left: 25%;
+}
+input[type="submit"]{
+	margin: 15px;
+}
+</style>
 </head>
 <body>
-	<?php include 'php/loaduserinfo.php';?>
-	
-	<?php include 'nav.php';?>
-	<section id="logodiv">
-		<img src='imgs/logo.png' id="logo"/>
-	</section>
-	<main>
-		<header>
-			<div>
-				<h1>SD1340: Mr. Memering</h1>
-			</div>
-		</header>
-		<div id="errMsg" style="color: red; display: none;">*Sorry, only JPG, JPEG, PNG & GIF files are allowed</div>
-		<form id='imageupload' method='post' enctype="multipart/form-data">
-			<center>
-				<input type="file" name="image" id="image" accept='image/*'/></br>
-				<input type="submit" name="submit" value="Submit"/>
-			</center>
-		</form>
-	</main>
+<div id="errMsg" style="color: red; display: none;">*Sorry, only JPG, JPEG, PNG & GIF files are allowed</div>
+<form id='imageupload' method='post' enctype="multipart/form-data">
+	<center>
+		<input type="file" name="image" id="image" accept='image/*'/></br>
+		<input type="submit" name="submit" value="Submit"/>
+	</center>
+</form>
+</body>
+</html>
 <?php
 if(isset($_POST['submit'])){
 	
@@ -65,5 +58,3 @@ if(isset($_POST['submit'])){
 	}
 }
 ?>
-</body>
-</html>

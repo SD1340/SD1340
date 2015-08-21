@@ -16,19 +16,27 @@
 		<img src='imgs/logo.png' id="logo"/>
 	</section>
 	<main id="profile">
+		<h3>Username: <?php echo $username; ?></h3>
 		<div>
-			<div id="firstrow">Username: <?php echo $username; ?><button type="button" id="changeuserimage">Change User Image</button></div>
-			<fieldset>
-			<legend>Change Password</legend>
-			<form id="password_form" method="POST" onsubmit="return validatepassword()">
-			<span>Current Password: <input type="password" id="currentpassword" name="currentpassword"/></span>
-			<span>New Password: <input type="password" id="newpassword" name="newpassword"/></span>
-			<span>Re-Type New Password: <input type="password" id="retypenewpassword" name="retypenewpassword"/></span>
-			<span><input type="submit" name="changepassword" id="changepassword" value="Change Password"/></span>
-			</form>
-			</fieldset>
+			<div style="float: left; width: 20%; margin-right: 10%;">
+				<fieldset id="passfs">
+					<legend>Change Password</legend>
+					<form id="password_form" method="POST" onsubmit="return validatepassword()">
+						<span>Current Password: <input type="password" id="currentpassword" name="currentpassword"/></span>
+						<span>New Password: <input type="password" id="newpassword" name="newpassword"/></span>
+						<span>Re-Type New Password: <input type="password" id="retypenewpassword" name="retypenewpassword"/></span>
+						<span><input type="submit" name="changepassword" id="changepassword" value="Change Password"/></span>
+					</form>
+				</fieldset>
+			</div>
+			<div style="float: left; width: 70%; margin-top: 15px;">
+				<center>
+					<img src="<?php echo $userimage; ?>" id="userimage-big" /><br />
+					<button type="button" id="changeuserimage">Change User Image</button>
+				</center>
+			</div>
 		</div>
-		<div>
+		<div id="contact-div">
 			<fieldset>
 			<legend>Contact Info</legend>
 			<form id="contactinfo_form">
@@ -40,6 +48,17 @@
 				</span>
 			</form>
 			</fieldset>
+		</div>
+		<div id="dim-background"></div>
+		<div id="uploaduserimage">
+			<div id="x">X</div>
+			<div id="errMsg" style="color: red; display: none;">*Sorry, only JPG, JPEG, PNG & GIF files are allowed</div>
+			<form id='imageupload' method='post' enctype="multipart/form-data">
+				<center>
+					<input type="file" name="image" id="image" accept='image/*'/></br>
+					<input type="submit" name="imagesubmit" value="Submit"/>
+				</center>
+			</form>
 		</div>
 	</main>
 	<?php include 'footer.html';?>
@@ -63,4 +82,42 @@
 			echo '<script>alert("Password Updated")</script>';
 		}
 	}
+?>
+<?php
+if(isset($_POST['imagesubmit'])){
+	if (empty($_FILES['image']['name'])){
+		echo '<script>alert("You must select an image");</script>';
+	}else{
+		$target_dir = "imgs/userimages/";
+		$uploadOk = 1;
+		
+		$imageFileType = pathinfo(basename( $_FILES["image"]["name"]),PATHINFO_EXTENSION);
+		$target_file = $target_dir . $username . '.' . $imageFileType;
+		$check = getimagesize($_FILES["image"]["tmp_name"]);
+		if($check == false) {
+			$uploadOk = 0;
+		}
+		$imageFileType = strtolower($imageFileType);
+		if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+		&& $imageFileType != "gif" ) {
+			echo "<script>$('#errMsg').show();</script>";
+			$uploadOk = 0;
+		}
+		if ($uploadOk == 0) {
+			echo "<script>window.location.href='server_error.html';</script>";
+			// if everything is ok, try to upload file
+		} else {
+			if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
+				$target_file = $username . '.' . $imageFileType;
+					
+				mysqli_query($dbc, "UPDATE users SET userimage = '".$target_file."' WHERE username='".$username."'")
+				or die(mysql_error("<script>window.location.href='server_error.html';</script>"));
+				echo "<script>alert('User image has been updated.');</script>";
+				echo "<script>window.location.href = 'profile.php'</script>";
+			} else {
+				echo "<script>window.location.href='server_error.html';</script>";
+			}
+		}	
+	}
+}
 ?>
