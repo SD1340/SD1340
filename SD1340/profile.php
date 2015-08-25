@@ -18,7 +18,7 @@
 	<main id="profile">
 		<h3>Username: <?php echo $username; ?></h3>
 		<div>
-			<div style="float: left; width: 20%; margin-right: 10%;">
+			<div style="float: left; width: 10%; margin-right: 20%;">
 				<fieldset id="passfs">
 					<legend>Change Password</legend>
 					<form id="password_form" method="POST" onsubmit="return validatepassword()">
