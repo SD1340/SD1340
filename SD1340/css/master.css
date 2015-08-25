@@ -5,12 +5,12 @@ html, body{
 }
 main{
 	background-color: #ffffff;
-	padding: 20px 0px;
+	padding: 2em 0px;
 	width: 80%;
 	min-width: 800px;
-	margin: 30px auto 0px auto;
+	margin: 0 auto;
 	height: auto;
-	border-radius: 15px;
+	border-radius: 2em;
 }
 #logo{
 	margin-top: 25px;
@@ -47,15 +47,12 @@ footer{
 	list-style: none;
 	display: inline-block;
 }
-.inner_footer li{
-	padding-top: 10px;
-}
-.inner_footer li a{
+.inner_footer a{
 	color: white;
 	text-decoration: none;
 	padding-left: 40%;
 }
-.inner_footer li a:hover{
+.inner_footer a:hover{
 	text-decoration: underline;
 }
 #left_footer, #center_footer{

@@ -1,6 +1,3 @@
-html{
-	background-color: #0769ad;
-}
 main{
 	background-color: #ffffff;
 	padding: 2em 0px;
@@ -13,8 +10,9 @@ main{
 	padding: 2em 0px;
 	width: 80%;
 	min-width: 800px;
-	border-radius: 2em;
 	margin: 0 auto;
+	height: auto;
+	border-radius: 2em;
 }
 #logo{
 	margin-top: 100px;
@@ -27,44 +25,6 @@ main{
 	min-width: 800px;
 	margin: 0 auto;
 }
-header{
-	width: 100%;
-}
-header div{
-	width: 80%;
-	margin: 0 auto;
-}
-header div h1{
-	font-weight: bold;
-	text-align: center;
-}
 #section div{
 	padding: 25px;
-}
-footer{
-	width: 100%;
-}
-#footer_div{
-	width: 80%;
-	min-width: 800px;
-	margin: 10px auto 50px auto;
-}
-.inner_footer{
-	width: 30%;
-	list-style: none;
-	display: inline-block;
-}
-.inner_footer li{
-	padding-top: 10px;
-}
-.inner_footer li a{
-	color: white;
-	text-decoration: none;
-	padding-left: 40%;
-}
-.inner_footer li a:hover{
-	text-decoration: underline;
-}
-#left_footer, #center_footer{
-	border-right: 2px solid #6699ff;
 }
