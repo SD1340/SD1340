@@ -15,7 +15,7 @@
 	<section id="logodiv">
 		<img src='imgs/logo.png' id="logo"/>
 	</section>
-	<main id="profile">
+	<main id="profile">	
 		<h3>Username: <?php echo $username; ?></h3>
 		<div>
 			<div style="float: left; width: 10%; margin-right: 20%;">

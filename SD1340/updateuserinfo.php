@@ -4,11 +4,14 @@
 	$lastname 	= $_POST['lastname'];
 	$phone 		= $_POST['phone'];
 	$email 		= $_POST['email'];
+	$action		= $_POST['action'];
 	
 	require_once('php/mysqli_connect.php');
-	$updatequery = mysqli_query($dbc, "UPDATE users SET firstname = '".$firstname."', lastname = '".$lastname."', phone = '".$phone."', email = '".$email."' WHERE username = '".$username."'") 
-		or die(mysql_error("<script>window.location.href='../server_error.html';</script>"));
-		
+	
+	if ($action == "update"){
+		$updatequery = mysqli_query($dbc, "UPDATE users SET firstname = '".$firstname."', lastname = '".$lastname."', phone = '".$phone."', email = '".$email."' WHERE username = '".$username."'") 
+			or die(mysql_error("<script>window.location.href='../server_error.html';</script>"));
+	}
 	$query = mysqli_query($dbc, "SELECT firstname, lastname, email, phone, userimage FROM users WHERE username = '".$username."'")
 			or die(mysql_error("<script>window.location.href='../server_error.html';</script>"));
 			

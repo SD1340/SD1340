@@ -115,11 +115,12 @@ function getContactInfo(){
 	$lastname = $('#userlastname').val();
 	$phone = $('#userphone').val();
 	$email = $('#useremail').val();
+	$action = "get";
 	
 	$.ajax({
 		method: "POST",
 		url: "updateuserinfo.php",
-		data: {username: $username, firstname: $firstname, lastname: $lastname, phone: $phone, email: $email }
+		data: {action: $action, username: $username, firstname: $firstname, lastname: $lastname, phone: $phone, email: $email }
 	})
 		.done(function( html ){
 			$("#contactinfodiv").html( html );
@@ -132,11 +133,12 @@ function updateContactInfo(){
 	$lastname = $('#lastname').val();
 	$phone = $('#phone').val();
 	$email = $('#email').val();
+	$action = "update";
 	
 	$.ajax({
 		method: "POST",
 		url: "updateuserinfo.php",
-		data: {username: $username, firstname: $firstname, lastname: $lastname, phone: $phone, email: $email }
+		data: {action: $action, username: $username, firstname: $firstname, lastname: $lastname, phone: $phone, email: $email }
 	})
 		.done(function( html ){
 			$("#contactinfodiv").html( html );
